@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace _01.ListyIterator
 {
-    class Program
+    class StartUp
     {
         static void Main(string[] args)
         {
