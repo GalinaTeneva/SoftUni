@@ -1,36 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace _05.ComparingObjects
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             List<Person> people = new List<Person>();
 
-            string cmd = Console.ReadLine();
-
-            while (cmd != "END")
+            string command;
+            while ((command = Console.ReadLine()) != "END")
             {
-                string[] personInfo = cmd.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                string[] personProps = command.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                Person person = new Person(personInfo[0], int.Parse(personInfo[1]), personInfo[2]);
+                Person person = new Person
+                {
+                    Name = personProps[0],
+                    Age = int.Parse(personProps[1]),
+                    Town = personProps[2]
+                };
+
                 people.Add(person);
-
-                cmd = Console.ReadLine();
             }
 
-            int index = int.Parse(Console.ReadLine());
-            Person personToCompare = people[index - 1];
+            int compareIndex = int.Parse(Console.ReadLine()) - 1;
 
-            int matchesCount = 0;
+            Person personToCompare = people[compareIndex];
+
+            int equalCount = 0;
             int diffCount = 0;
-            foreach (Person person in people)
+
+            foreach (var person in people)
             {
                 if (person.CompareTo(personToCompare) == 0)
                 {
-                    matchesCount++;
+                    equalCount++;
                 }
                 else
                 {
@@ -38,13 +42,13 @@ namespace _05.ComparingObjects
                 }
             }
 
-            if (matchesCount == 1)
+            if (equalCount == 1)
             {
                 Console.WriteLine("No matches");
             }
             else
             {
-                Console.WriteLine($"{matchesCount} {diffCount} {people.Count}");
+                Console.WriteLine($"{equalCount} {diffCount} {people.Count}");
             }
         }
     }
