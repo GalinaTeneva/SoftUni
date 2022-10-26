@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.ComparingObjects", "Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.CustomComparator", "Exercise\07.CustomComparator\07.CustomComparator.csproj", "{63328DC8-A642-4CEC-A2A7-E8B7685823F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.CustomLinkedList", "Exercise\08.CustomLinkedList\08.CustomLinkedList.csproj", "{8FDDBD87-A96F-403D-A38D-F01777ECCA94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDDBD87-A96F-403D-A38D-F01777ECCA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDDBD87-A96F-403D-A38D-F01777ECCA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDDBD87-A96F-403D-A38D-F01777ECCA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDDBD87-A96F-403D-A38D-F01777ECCA94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{49290B3B-64D2-458E-9405-5A04FD79C773} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{63328DC8-A642-4CEC-A2A7-E8B7685823F1} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
+		{8FDDBD87-A96F-403D-A38D-F01777ECCA94} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BBCF9479-AE9F-40BA-AAE8-F4260A123C14}
