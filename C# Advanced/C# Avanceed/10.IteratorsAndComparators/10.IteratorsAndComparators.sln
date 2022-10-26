@@ -9,21 +9,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab", "Lab", "{5D931D34-1A4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Library", "Lab\01.Library\01.Library.csproj", "{51F721E6-17CB-4BA8-A6F2-2E5046B6ED21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.LibraryIterator", "Lab\02.LibraryIterator\02.LibraryIterator.csproj", "{45EFC2D1-4BF9-4ACB-84EF-36E4FD56B652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.LibraryIterator", "Lab\02.LibraryIterator\02.LibraryIterator.csproj", "{45EFC2D1-4BF9-4ACB-84EF-36E4FD56B652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.ComparableBook", "Lab\03.ComparableBook\03.ComparableBook.csproj", "{96F1E8DB-A099-4B93-9524-C472E02D36E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.ComparableBook", "Lab\03.ComparableBook\03.ComparableBook.csproj", "{96F1E8DB-A099-4B93-9524-C472E02D36E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.BookComparer", "Lab\04.BookComparer\04.BookComparer.csproj", "{E9C7260D-FF50-4B9F-9D85-0FA0ECE49753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ListyIterator", "Exercise\01.ListyIterator\01.ListyIterator.csproj", "{7329E8D7-B5F4-4E3A-AE10-AE2CAAA4D402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.ListyIterator", "Exercise\01.ListyIterator\01.ListyIterator.csproj", "{7329E8D7-B5F4-4E3A-AE10-AE2CAAA4D402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Collection", "Exercise\02.Collection\02.Collection.csproj", "{46324F5E-2230-40F5-B974-08E1DDBB5A6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.Collection", "Exercise\02.Collection\02.Collection.csproj", "{46324F5E-2230-40F5-B974-08E1DDBB5A6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Stack", "Exercise\03.Stack\03.Stack.csproj", "{3A00123C-9BED-4209-A2D0-0503C13A609E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Stack", "Exercise\03.Stack\03.Stack.csproj", "{3A00123C-9BED-4209-A2D0-0503C13A609E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Froggy", "Exercise\04.Froggy\04.Froggy.csproj", "{B821FF99-343E-439B-BB8B-287B3E7D84D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.Froggy", "Exercise\04.Froggy\04.Froggy.csproj", "{B821FF99-343E-439B-BB8B-287B3E7D84D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.ComparingObjects", "Exercise\05.ComparingObjects\05.ComparingObjects.csproj", "{117645E6-9564-457F-A5C5-2E014B75C4B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05.ComparingObjects", "Exercise\05.ComparingObjects\05.ComparingObjects.csproj", "{117645E6-9564-457F-A5C5-2E014B75C4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.EqualityLogic", "Exercise\06.EqualityLogic\06.EqualityLogic.csproj", "{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{117645E6-9564-457F-A5C5-2E014B75C4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{117645E6-9564-457F-A5C5-2E014B75C4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{117645E6-9564-457F-A5C5-2E014B75C4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{3A00123C-9BED-4209-A2D0-0503C13A609E} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{B821FF99-343E-439B-BB8B-287B3E7D84D6} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{117645E6-9564-457F-A5C5-2E014B75C4B3} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
+		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BBCF9479-AE9F-40BA-AAE8-F4260A123C14}

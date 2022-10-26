@@ -44,7 +44,7 @@ namespace _05.ComparingObjects
             }
             else
             {
-                Console.WriteLine($"{matchesCount} {number of not equal people} {total number of people}");
+                Console.WriteLine($"{matchesCount} {diffCount} {people.Count}");
             }
         }
     }
