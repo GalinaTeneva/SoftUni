@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06.EqualityLogic", "Exercis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.ComparingObjects", "Exercise\05.ComparingObjects\05.ComparingObjects.csproj", "{49290B3B-64D2-458E-9405-5A04FD79C773}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.CustomComparator", "Exercise\07.CustomComparator\07.CustomComparator.csproj", "{63328DC8-A642-4CEC-A2A7-E8B7685823F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{49290B3B-64D2-458E-9405-5A04FD79C773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49290B3B-64D2-458E-9405-5A04FD79C773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49290B3B-64D2-458E-9405-5A04FD79C773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63328DC8-A642-4CEC-A2A7-E8B7685823F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,8 @@ Global
 		{3A00123C-9BED-4209-A2D0-0503C13A609E} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{B821FF99-343E-439B-BB8B-287B3E7D84D6} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 		{C0D27E54-A945-4293-B49E-D9CAA9BEFB3C} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
+		{49290B3B-64D2-458E-9405-5A04FD79C773} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
+		{63328DC8-A642-4CEC-A2A7-E8B7685823F1} = {01A240B9-9F12-45FD-AD76-61ED3FEADC5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BBCF9479-AE9F-40BA-AAE8-F4260A123C14}
