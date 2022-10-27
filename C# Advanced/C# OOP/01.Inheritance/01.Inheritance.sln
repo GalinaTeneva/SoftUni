@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.HierarchicalInheritance"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.RandomList", "Lab\04.RandomList\04.RandomList.csproj", "{7BFB5B67-D102-49AF-9521-872D2A37C989}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.StackOfStrings", "Lab\05.StackOfStrings\05.StackOfStrings.csproj", "{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{7BFB5B67-D102-49AF-9521-872D2A37C989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFB5B67-D102-49AF-9521-872D2A37C989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFB5B67-D102-49AF-9521-872D2A37C989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{54806A67-4AAC-4D18-B393-AA0288B1BD4A} = {8717257B-24B2-46F7-BB33-2D42212A1DBA}
 		{FFEB1169-3EEA-4E73-ABB6-54F06B0869B6} = {8717257B-24B2-46F7-BB33-2D42212A1DBA}
 		{7BFB5B67-D102-49AF-9521-872D2A37C989} = {8717257B-24B2-46F7-BB33-2D42212A1DBA}
+		{C1F53CDA-2239-4304-A65A-EC0C27CB9A3A} = {8717257B-24B2-46F7-BB33-2D42212A1DBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2A57581-2923-4903-BFF2-88F007777A78}
