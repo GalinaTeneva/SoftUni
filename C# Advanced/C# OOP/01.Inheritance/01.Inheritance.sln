@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.PlayersAndMonsters", "Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.NeedForSpeed", "Exercise\04.NeedForSpeed\04.NeedForSpeed.csproj", "{7F5A22A8-A317-4703-B975-6225FAF76739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.Restaurant", "Exercise\05.Restaurant\05.Restaurant.csproj", "{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{7F5A22A8-A317-4703-B975-6225FAF76739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F5A22A8-A317-4703-B975-6225FAF76739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F5A22A8-A317-4703-B975-6225FAF76739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{FE80FB6B-4A6C-4FCA-B39B-4D9E0AAD4C6F} = {E62E79CD-0168-4068-8AFB-6E87F263FC12}
 		{ABA6B0EA-4017-45F0-9133-5A728DA3EB62} = {E62E79CD-0168-4068-8AFB-6E87F263FC12}
 		{7F5A22A8-A317-4703-B975-6225FAF76739} = {E62E79CD-0168-4068-8AFB-6E87F263FC12}
+		{86434BE4-0E16-43B5-BDE8-F8BC8E30BEBD} = {E62E79CD-0168-4068-8AFB-6E87F263FC12}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2A57581-2923-4903-BFF2-88F007777A78}
