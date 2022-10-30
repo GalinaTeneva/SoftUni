@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Salary", "Lab\02.Salary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Validation", "Lab\03.Validation\03.Validation.csproj", "{2D4F1DE3-544B-4877-8188-2D96AF2E2C31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Team", "Lab\04.Team\04.Team.csproj", "{014C55F4-0C4C-42CC-9CB8-05703DDE255F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{2D4F1DE3-544B-4877-8188-2D96AF2E2C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D4F1DE3-544B-4877-8188-2D96AF2E2C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D4F1DE3-544B-4877-8188-2D96AF2E2C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014C55F4-0C4C-42CC-9CB8-05703DDE255F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014C55F4-0C4C-42CC-9CB8-05703DDE255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014C55F4-0C4C-42CC-9CB8-05703DDE255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014C55F4-0C4C-42CC-9CB8-05703DDE255F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{08647B32-3F4E-4BB3-915A-BD4C683709C2} = {D7D66A71-9171-4EFD-A03F-2B43E9F2C290}
 		{4C84AFD5-B855-41EA-B44E-EAC74489CBEB} = {D7D66A71-9171-4EFD-A03F-2B43E9F2C290}
 		{2D4F1DE3-544B-4877-8188-2D96AF2E2C31} = {D7D66A71-9171-4EFD-A03F-2B43E9F2C290}
+		{014C55F4-0C4C-42CC-9CB8-05703DDE255F} = {D7D66A71-9171-4EFD-A03F-2B43E9F2C290}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D64BBF7A-8ABC-4DC5-B89C-B4DDA7390E67}
