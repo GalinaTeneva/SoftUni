@@ -27,7 +27,7 @@ namespace _04.PizzaCalories
         {
             get
             { return name; }
-            set
+            private set
             {
                 if (value.Length > 15 || string.IsNullOrWhiteSpace(value))
                 {
@@ -44,7 +44,7 @@ namespace _04.PizzaCalories
             {
                 return dough;
             }
-            set
+            private set
             {
                 dough = value;
             }
@@ -53,16 +53,6 @@ namespace _04.PizzaCalories
         public int ToppingsNum => toppingsCalories.Count;
 
         public double Calories => GetCalories();
-
-
-        //public Dictionary<Topping, double> ToppingsCalories
-        //{
-        //    get { return toppingsCalories; }
-        //    private set
-        //    {
-        //        ToppingsCalories = value;
-        //    }
-        //}
 
         public void AddTopping(Topping topping)
         {

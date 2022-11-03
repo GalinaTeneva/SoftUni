@@ -26,9 +26,9 @@ namespace _04.PizzaCalories
         public string FlourType
         {
             get { return flourType; }
-            set
+            private set
             {
-                if (value != "White" && value != "Wholegrain")
+                if (value.ToLower() != "white" && value.ToLower() != "wholegrain")
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
@@ -40,7 +40,7 @@ namespace _04.PizzaCalories
         public string BakingTechnique
         {
             get { return bakingTechnique; }
-            set
+            private set
             {
                 if (value.ToLower() != "crispy" && value.ToLower() != "chewy" && value.ToLower() != "homemade")
                 {
@@ -54,7 +54,7 @@ namespace _04.PizzaCalories
         public double Weigh
         {
             get { return weigh; }
-            set
+            private set
             {
                 if (value <= 0 || value > 200)
                 {
