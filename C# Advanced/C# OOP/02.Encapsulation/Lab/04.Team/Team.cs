@@ -6,16 +6,17 @@ namespace PersonsInfo
 {
     public class Team
     {
-        private string name;
-        private List<Person> firstTeam;
-        private List<Person> reserveTeam;
+        private readonly List<Person> firstTeam;
+        private readonly List<Person> reserveTeam;
 
         public Team(string name)
         {
-            this.name = name;
+            this.Name = name;
             this.firstTeam = new List<Person>();
             this.reserveTeam = new List<Person>();
         }
+
+        public string Name { get; set; }
 
         public IReadOnlyCollection<Person> FirstTeam
         {

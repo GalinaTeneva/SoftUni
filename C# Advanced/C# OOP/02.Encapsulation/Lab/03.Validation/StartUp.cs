@@ -5,7 +5,7 @@ namespace PersonsInfo
 {
     public class StartUp
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var lines = int.Parse(Console.ReadLine());
             var persons = new List<Person>();
