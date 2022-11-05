@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{95
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.DefineAnInterfaceIPerson", "Exercise\01.DefineAnInterfaceIPerson\01.DefineAnInterfaceIPerson.csproj", "{6E515FC2-107B-4259-9139-46562DAAE869}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MultipleImplementation", "Exercise\02.MultipleImplementation\02.MultipleImplementation.csproj", "{9377C3A2-28FA-4B45-B74C-44A836B49FEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6E515FC2-107B-4259-9139-46562DAAE869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E515FC2-107B-4259-9139-46562DAAE869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E515FC2-107B-4259-9139-46562DAAE869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9377C3A2-28FA-4B45-B74C-44A836B49FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9377C3A2-28FA-4B45-B74C-44A836B49FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9377C3A2-28FA-4B45-B74C-44A836B49FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9377C3A2-28FA-4B45-B74C-44A836B49FEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{C1A1A770-763F-4421-8BE5-A769FAC5342A} = {30496A1D-E2E3-48CE-85B3-7083A11EB766}
 		{3487A473-02E6-497C-9C4C-652898060466} = {30496A1D-E2E3-48CE-85B3-7083A11EB766}
 		{6E515FC2-107B-4259-9139-46562DAAE869} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
+		{9377C3A2-28FA-4B45-B74C-44A836B49FEF} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC83CEAA-2377-4E07-AFD1-14AB7E923ECB}
