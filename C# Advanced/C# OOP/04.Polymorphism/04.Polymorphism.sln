@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab", "Lab", "{3C56CCA0-1E9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.MathOperations", "Lab\01.MathOperations\01.MathOperations.csproj", "{828EC138-BF97-4105-92AB-A1435F6D78F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Animals", "Lab\02.Animals\02.Animals.csproj", "{454E85CE-1924-49AD-827F-5326522F40F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{828EC138-BF97-4105-92AB-A1435F6D78F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{828EC138-BF97-4105-92AB-A1435F6D78F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{828EC138-BF97-4105-92AB-A1435F6D78F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454E85CE-1924-49AD-827F-5326522F40F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454E85CE-1924-49AD-827F-5326522F40F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454E85CE-1924-49AD-827F-5326522F40F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454E85CE-1924-49AD-827F-5326522F40F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{828EC138-BF97-4105-92AB-A1435F6D78F9} = {3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}
+		{454E85CE-1924-49AD-827F-5326522F40F7} = {3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1357BF44-75B4-4C08-9016-217DB87184D5}
