@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab", "Lab", "{3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.MathOperations", "Lab\01.MathOperations\01.MathOperations.csproj", "{828EC138-BF97-4105-92AB-A1435F6D78F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.MathOperations", "Lab\01.MathOperations\01.MathOperations.csproj", "{828EC138-BF97-4105-92AB-A1435F6D78F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Animals", "Lab\02.Animals\02.Animals.csproj", "{454E85CE-1924-49AD-827F-5326522F40F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.Animals", "Lab\02.Animals\02.Animals.csproj", "{454E85CE-1924-49AD-827F-5326522F40F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Shapes", "Lab\03.Shapes\03.Shapes.csproj", "{A542305E-9702-497A-A415-3AE4D0580A5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Shapes", "Lab\03.Shapes\03.Shapes.csproj", "{A542305E-9702-497A-A415-3AE4D0580A5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{CE5AF720-9EA8-4E70-A3C8-DB004307C83F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Vehicles", "Exercise\01.Vehicles\01.Vehicles.csproj", "{EA88C88E-449A-4219-AE54-A697C9ECC587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Vehicles", "Exercise\01.Vehicles\01.Vehicles.csproj", "{EA88C88E-449A-4219-AE54-A697C9ECC587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.WildFarm", "Exercise\04.WildFarm\04.WildFarm.csproj", "{42B34336-FACD-4BE7-B086-170886405E0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{EA88C88E-449A-4219-AE54-A697C9ECC587}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA88C88E-449A-4219-AE54-A697C9ECC587}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA88C88E-449A-4219-AE54-A697C9ECC587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B34336-FACD-4BE7-B086-170886405E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B34336-FACD-4BE7-B086-170886405E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B34336-FACD-4BE7-B086-170886405E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B34336-FACD-4BE7-B086-170886405E0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{454E85CE-1924-49AD-827F-5326522F40F7} = {3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}
 		{A542305E-9702-497A-A415-3AE4D0580A5B} = {3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}
 		{EA88C88E-449A-4219-AE54-A697C9ECC587} = {CE5AF720-9EA8-4E70-A3C8-DB004307C83F}
+		{42B34336-FACD-4BE7-B086-170886405E0E} = {CE5AF720-9EA8-4E70-A3C8-DB004307C83F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1357BF44-75B4-4C08-9016-217DB87184D5}
