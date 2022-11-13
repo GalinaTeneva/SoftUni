@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07.MilitaryElite", "Exercis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.BorderControl", "Exercise\04.BorderControl\04.BorderControl.csproj", "{F5A960DB-1F05-4BEB-8431-8CF586D2E322}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.BirthdayCelebrations", "Exercise\05.BirthdayCelebrations\05.BirthdayCelebrations.csproj", "{76EF4411-C0EF-4C54-9C50-514A89EFC026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{F5A960DB-1F05-4BEB-8431-8CF586D2E322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A960DB-1F05-4BEB-8431-8CF586D2E322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A960DB-1F05-4BEB-8431-8CF586D2E322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76EF4411-C0EF-4C54-9C50-514A89EFC026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76EF4411-C0EF-4C54-9C50-514A89EFC026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76EF4411-C0EF-4C54-9C50-514A89EFC026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76EF4411-C0EF-4C54-9C50-514A89EFC026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{00727F2E-E66C-4FB2-A5E2-6E16C67AA08A} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
 		{B2FB9A04-6DE0-45F9-89B4-887CE29B899A} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
 		{F5A960DB-1F05-4BEB-8431-8CF586D2E322} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
+		{76EF4411-C0EF-4C54-9C50-514A89EFC026} = {95565258-E5A4-48DA-9CFA-406E2EA3765E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC83CEAA-2377-4E07-AFD1-14AB7E923ECB}
