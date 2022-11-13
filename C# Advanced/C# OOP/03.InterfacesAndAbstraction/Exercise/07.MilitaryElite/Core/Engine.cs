@@ -1,6 +1,4 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MilitaryElite.Core
 {
     using System;
