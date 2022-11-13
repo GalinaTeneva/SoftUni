@@ -1,7 +1,7 @@
 ﻿
 namespace BirthdayCelebrations.Models
 {
-    using BirthdayCelebrations.Models.Interfaces;
+    using Interfaces;
 
     public class Pet : IPet
     {

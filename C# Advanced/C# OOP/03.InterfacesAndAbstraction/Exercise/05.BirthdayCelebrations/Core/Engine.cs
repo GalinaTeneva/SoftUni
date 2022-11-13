@@ -1,12 +1,13 @@
 ﻿
 namespace BirthdayCelebrations.Core
 {
-    using BirthdayCelebrations.Core.Interfaces;
-    using BirthdayCelebrations.Models;
-    using BirthdayCelebrations.Models.Interfaces;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
+    using Interfaces;
+    using Models;
+    using Models.Interfaces;
 
     public class Engine : IEngine
     {
