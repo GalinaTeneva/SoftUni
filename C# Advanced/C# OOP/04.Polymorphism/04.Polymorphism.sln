@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{CE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Vehicles", "Exercise\01.Vehicles\01.Vehicles.csproj", "{EA88C88E-449A-4219-AE54-A697C9ECC587}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.WildFarm", "Exercise\04.WildFarm\04.WildFarm.csproj", "{42B34336-FACD-4BE7-B086-170886405E0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.WildFarm", "Exercise\04.WildFarm\04.WildFarm.csproj", "{42B34336-FACD-4BE7-B086-170886405E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.VehiclesExtension", "Exercise\02.VehiclesExtension\02.VehiclesExtension.csproj", "{698AEDBD-0991-46FA-9777-D143ED06C209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{42B34336-FACD-4BE7-B086-170886405E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42B34336-FACD-4BE7-B086-170886405E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42B34336-FACD-4BE7-B086-170886405E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{698AEDBD-0991-46FA-9777-D143ED06C209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698AEDBD-0991-46FA-9777-D143ED06C209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698AEDBD-0991-46FA-9777-D143ED06C209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698AEDBD-0991-46FA-9777-D143ED06C209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{A542305E-9702-497A-A415-3AE4D0580A5B} = {3C56CCA0-1E96-4AF5-B3E3-DE76AC6C0449}
 		{EA88C88E-449A-4219-AE54-A697C9ECC587} = {CE5AF720-9EA8-4E70-A3C8-DB004307C83F}
 		{42B34336-FACD-4BE7-B086-170886405E0E} = {CE5AF720-9EA8-4E70-A3C8-DB004307C83F}
+		{698AEDBD-0991-46FA-9777-D143ED06C209} = {CE5AF720-9EA8-4E70-A3C8-DB004307C83F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1357BF44-75B4-4C08-9016-217DB87184D5}
