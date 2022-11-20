@@ -35,18 +35,18 @@ namespace SumOfIntegers
         static int ItemAsInteger(string input)
         {
             long longNum = 0;
-            int num = 0;
-
             if (Int64.TryParse(input, out longNum))
             {
                 if (longNum > int.MaxValue || longNum < int.MinValue)
                 {
                     throw new OverflowException($"The element '{input}' is out of range!");
                 }
-                if (!int.TryParse(input, out num))
-                {
-                    throw new FormatException($"The element '{input}' is in wrong format!");
-                }
+            }
+
+            int num = 0;
+            if (!int.TryParse(input, out num))
+            {
+                throw new FormatException($"The element '{input}' is in wrong format!");
             }
 
             return num;
