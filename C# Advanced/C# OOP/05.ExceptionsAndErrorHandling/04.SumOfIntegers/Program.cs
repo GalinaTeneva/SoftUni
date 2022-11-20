@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace SumOfIntegers
 {
@@ -6,15 +7,16 @@ namespace SumOfIntegers
     {
         static void Main()
         {
-            string[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            
+            string[] input = Console.ReadLine().Split(" ");
 
-            int integerSum = 0;
+            BigInteger integerSum = 0;
 
             foreach (string item in input)
             {
                 try
                 {
-                    int num = ItemAsInteger(item);
+                    long num = ItemAsInteger(item);
                     integerSum += num;
                 }
                 catch (FormatException fe)
@@ -32,23 +34,19 @@ namespace SumOfIntegers
             Console.WriteLine($"The total sum of all integers is: {integerSum}");
         }
 
-        static int ItemAsInteger(string input)
+        static long ItemAsInteger(string input)
         {
-            long longNum = 0;
-            if (Int64.TryParse(input, out longNum))
-            {
-                if (longNum > int.MaxValue || longNum < int.MinValue)
-                {
-                    throw new OverflowException($"The element '{input}' is out of range!");
-                }
-            }
-
-            int num = 0;
-            if (!int.TryParse(input, out num))
+            long num = 0;
+            if (!Int64.TryParse(input, out num))
             {
                 throw new FormatException($"The element '{input}' is in wrong format!");
             }
 
+            if (num > int.MaxValue || num < int.MinValue)
+            {
+                throw new OverflowException($"The element '{input}' is out of range!");
+            }
+            
             return num;
         }
     }
