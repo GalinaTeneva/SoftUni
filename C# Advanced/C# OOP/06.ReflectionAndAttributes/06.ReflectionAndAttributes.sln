@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab", "Lab", "{EC5234CE-1CF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Stealer", "Lab\01.Stealer\01.Stealer.csproj", "{E587B962-3F8C-414B-81C8-8902F7C61DE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.HighQualityMistakes", "Lab\02.HighQualityMistakes\02.HighQualityMistakes.csproj", "{1520008E-EE65-4986-BB2C-5EE6404528F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{E587B962-3F8C-414B-81C8-8902F7C61DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E587B962-3F8C-414B-81C8-8902F7C61DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E587B962-3F8C-414B-81C8-8902F7C61DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1520008E-EE65-4986-BB2C-5EE6404528F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1520008E-EE65-4986-BB2C-5EE6404528F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1520008E-EE65-4986-BB2C-5EE6404528F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1520008E-EE65-4986-BB2C-5EE6404528F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E587B962-3F8C-414B-81C8-8902F7C61DE0} = {EC5234CE-1CF7-4CA5-9AAE-47B813D2AB49}
+		{1520008E-EE65-4986-BB2C-5EE6404528F4} = {EC5234CE-1CF7-4CA5-9AAE-47B813D2AB49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A9997ADE-EC10-46F6-92BF-EB91F280F310}
