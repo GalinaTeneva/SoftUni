@@ -1,10 +1,10 @@
 ﻿
 namespace CommandPattern
 {
+    using Utilities;
     using Utilities.Contracts;
     using Core;
     using Core.Contracts;
-    using Utilities;
 
     public class StartUp
     {
