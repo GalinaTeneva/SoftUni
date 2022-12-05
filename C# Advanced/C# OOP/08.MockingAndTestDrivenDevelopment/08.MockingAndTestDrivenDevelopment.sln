@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{09DC5C2B-1ABD-41EE-8018-6B4AE66EE6F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Chainblock", "01.Chainblock", "{B60071A9-BF27-498A-87A9-DFA54DDA5585}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chainblock", "Exercise\01.Chainblock\Chainblock\Chainblock.csproj", "{D3E676AF-F38A-4686-A9DB-E382A03076ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chainblock.Tests", "Exercise\01.Chainblock\Chainblock.Tests\Chainblock.Tests.csproj", "{C47CEC96-6983-452A-A670-EBBB0BD33AE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3E676AF-F38A-4686-A9DB-E382A03076ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E676AF-F38A-4686-A9DB-E382A03076ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E676AF-F38A-4686-A9DB-E382A03076ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E676AF-F38A-4686-A9DB-E382A03076ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C47CEC96-6983-452A-A670-EBBB0BD33AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C47CEC96-6983-452A-A670-EBBB0BD33AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C47CEC96-6983-452A-A670-EBBB0BD33AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C47CEC96-6983-452A-A670-EBBB0BD33AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B60071A9-BF27-498A-87A9-DFA54DDA5585} = {09DC5C2B-1ABD-41EE-8018-6B4AE66EE6F9}
+		{D3E676AF-F38A-4686-A9DB-E382A03076ED} = {B60071A9-BF27-498A-87A9-DFA54DDA5585}
+		{C47CEC96-6983-452A-A670-EBBB0BD33AE5} = {B60071A9-BF27-498A-87A9-DFA54DDA5585}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9256E40F-741F-43BE-800E-52A522664720}
+	EndGlobalSection
+EndGlobal
