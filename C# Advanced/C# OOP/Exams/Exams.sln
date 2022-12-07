@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OOPExam-09April2022", "OOPExam-09April2022", "{F508D851-5ABE-480A-AFF7-A72EE69A33DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-02.StructureAndBusinesLogic", "01-02.StructureAndBusinesLogic", "{7BBE69B8-D5BF-46C7-83D2-F579BB6BB4D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formula1", "OOPExam-09April2022\01-02.StructureAndBusinesLogic\Formula1.csproj", "{C405F9F0-E6F1-4850-8E25-4C043CB921FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.UnitTests", "03.UnitTests", "{2C4D0D9D-C421-48C6-832F-48BA50DA58B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartphoneShop", "OOPExam-09April2022\03.UnitTests\SmartphoneShop\SmartphoneShop.csproj", "{FE21F4B3-FE98-4836-8584-79A28FA1D505}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartphoneShop.Tests", "OOPExam-09April2022\03.UnitTests\SmartphoneShop.Tests\SmartphoneShop.Tests.csproj", "{D33C08D7-CC36-4CFB-963F-EEB87549380D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C405F9F0-E6F1-4850-8E25-4C043CB921FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C405F9F0-E6F1-4850-8E25-4C043CB921FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C405F9F0-E6F1-4850-8E25-4C043CB921FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C405F9F0-E6F1-4850-8E25-4C043CB921FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE21F4B3-FE98-4836-8584-79A28FA1D505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE21F4B3-FE98-4836-8584-79A28FA1D505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE21F4B3-FE98-4836-8584-79A28FA1D505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE21F4B3-FE98-4836-8584-79A28FA1D505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33C08D7-CC36-4CFB-963F-EEB87549380D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D33C08D7-CC36-4CFB-963F-EEB87549380D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D33C08D7-CC36-4CFB-963F-EEB87549380D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D33C08D7-CC36-4CFB-963F-EEB87549380D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BBE69B8-D5BF-46C7-83D2-F579BB6BB4D3} = {F508D851-5ABE-480A-AFF7-A72EE69A33DB}
+		{C405F9F0-E6F1-4850-8E25-4C043CB921FA} = {7BBE69B8-D5BF-46C7-83D2-F579BB6BB4D3}
+		{2C4D0D9D-C421-48C6-832F-48BA50DA58B1} = {F508D851-5ABE-480A-AFF7-A72EE69A33DB}
+		{FE21F4B3-FE98-4836-8584-79A28FA1D505} = {2C4D0D9D-C421-48C6-832F-48BA50DA58B1}
+		{D33C08D7-CC36-4CFB-963F-EEB87549380D} = {2C4D0D9D-C421-48C6-832F-48BA50DA58B1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DF8793C-21F4-4130-B2DC-501D3D26B354}
+	EndGlobalSection
+EndGlobal
