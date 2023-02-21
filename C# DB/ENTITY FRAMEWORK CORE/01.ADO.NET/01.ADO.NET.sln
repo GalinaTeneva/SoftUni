@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{65711F85-A87A-435B-9971-B69324E2763A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.VillainNames", "02.VillainNames", "{3E861FEA-FE39-43D4-99E8-54FDEE427268}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.VillainNames", "Exercise\02.VillainNames\02.VillainNames.csproj", "{5887049B-4C61-443E-8512-B7BE681D904B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5887049B-4C61-443E-8512-B7BE681D904B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5887049B-4C61-443E-8512-B7BE681D904B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5887049B-4C61-443E-8512-B7BE681D904B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5887049B-4C61-443E-8512-B7BE681D904B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E861FEA-FE39-43D4-99E8-54FDEE427268} = {65711F85-A87A-435B-9971-B69324E2763A}
+		{5887049B-4C61-443E-8512-B7BE681D904B} = {3E861FEA-FE39-43D4-99E8-54FDEE427268}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C33A41C9-F92C-4CBF-8FD0-2B9D028BB9D0}
+	EndGlobalSection
+EndGlobal
