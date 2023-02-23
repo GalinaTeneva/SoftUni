@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{3BB6EB18-889D-4B0B-A9A6-7E95F6082D2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniORM", "Exercise\MiniORM.csproj", "{932296C1-E1BB-48D9-8061-9BD3649E3C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniORM.App", "MiniORM.App\MiniORM.App.csproj", "{0F7B7080-D970-4780-BDA4-A9F20621768D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{932296C1-E1BB-48D9-8061-9BD3649E3C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932296C1-E1BB-48D9-8061-9BD3649E3C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932296C1-E1BB-48D9-8061-9BD3649E3C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932296C1-E1BB-48D9-8061-9BD3649E3C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F7B7080-D970-4780-BDA4-A9F20621768D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7B7080-D970-4780-BDA4-A9F20621768D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7B7080-D970-4780-BDA4-A9F20621768D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7B7080-D970-4780-BDA4-A9F20621768D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{932296C1-E1BB-48D9-8061-9BD3649E3C17} = {3BB6EB18-889D-4B0B-A9A6-7E95F6082D2D}
+		{0F7B7080-D970-4780-BDA4-A9F20621768D} = {3BB6EB18-889D-4B0B-A9A6-7E95F6082D2D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66F98A77-8933-48CD-93DB-D68FBA6670D5}
+	EndGlobalSection
+EndGlobal
