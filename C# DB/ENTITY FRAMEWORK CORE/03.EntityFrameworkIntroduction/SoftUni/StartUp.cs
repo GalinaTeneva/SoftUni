@@ -29,9 +29,13 @@ public class StartUp
         //string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
         //Console.WriteLine(result4);
 
-        //07. Employees and Projects
-        string result5 = GetEmployeesInPeriod(dbContext);
-        Console.WriteLine(result5);
+        ////07. Employees and Projects
+        //string result5 = GetEmployeesInPeriod(dbContext);
+        //Console.WriteLine(result5);
+
+        //08. Addresses by Town
+        string result6 = GetAddressesByTown(dbContext);
+        Console.WriteLine(result6);
 
     }
 
@@ -138,9 +142,6 @@ public class StartUp
     {
         StringBuilder sb = new StringBuilder();
         var employeesWithProjects = context.Employees
-            //.Where(e => e.EmployeesProjects
-            //    .Any(ep => ep.Project.StartDate.Year >= 2001 &&
-            //               ep.Project.StartDate.Year <= 2003))
             .Take(10)
             .Select(e => new
             {
@@ -173,6 +174,32 @@ public class StartUp
                 sb
                     .AppendLine($"--{p.ProjectName} - {p.StartDate} - {p.EndDate}");
             }
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //08. Addresses by Town
+    public static string GetAddressesByTown(SoftUniContext context)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        var addresses = context.Addresses
+            .Select(a => new
+            {
+                a.AddressText,
+                TownName = a.Town!.Name,
+                EmployeeCount = a.Employees.Count
+            })
+            .OrderByDescending(a => a.EmployeeCount)
+            .ThenBy(a => a.TownName)
+            .ThenBy(a => a.AddressText)
+            .Take(10)
+            .ToArray();
+
+        foreach (var a in addresses)
+        {
+            sb.AppendLine($"{a.AddressText}, {a.TownName} - {a.EmployeeCount} employees");
         }
 
         return sb.ToString().TrimEnd();
