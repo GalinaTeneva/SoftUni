@@ -12,13 +12,17 @@ public class StartUp
     {
         SoftUniContext dbContext = new SoftUniContext();
 
-        //03. Employees Full Information
-        string result1 = GetEmployeesFullInformation(dbContext);
-        Console.WriteLine(result1);
+        ////03. Employees Full Information
+        //string result1 = GetEmployeesFullInformation(dbContext);
+        //Console.WriteLine(result1);
 
-        //04. Employees with Salary Over 50 000
-        string result2 = GetEmployeesWithSalaryOver50000(dbContext);
-        Console.WriteLine(result2);
+        ////04. Employees with Salary Over 50 000
+        //string result2 = GetEmployeesWithSalaryOver50000(dbContext);
+        //Console.WriteLine(result2);
+
+        //05. Employees from Research and Development
+        string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        Console.WriteLine(result3);
 
     }
 
@@ -65,6 +69,32 @@ public class StartUp
         foreach (var employee in employees)
         {
             sb.AppendLine($"{employee.FirstName} - {employee.Salary:F2}");
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //05. Employees from Research and Development
+    public static string GetEmployeesFromResearchAndDevelopment(SoftUniContext context)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        var employees = context.Employees
+            .Where(e => e.Department.Name == "Research and Development")
+            .Select(e => new
+            {
+                e.FirstName,
+                e.LastName,
+                DepartmentName = e.Department.Name,
+                e.Salary
+            })
+            .OrderBy(e => e.Salary)
+            .ThenByDescending(e => e.FirstName)
+            .ToArray();
+
+        foreach (var e in employees)
+        {
+            sb.AppendLine($"{e.FirstName} {e.LastName} from {e.DepartmentName} - ${e.Salary:F2}");
         }
 
         return sb.ToString().TrimEnd();
