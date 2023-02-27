@@ -20,10 +20,13 @@ public class StartUp
         //string result2 = GetEmployeesWithSalaryOver50000(dbContext);
         //Console.WriteLine(result2);
 
-        //05. Employees from Research and Development
-        string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
-        Console.WriteLine(result3);
+        ////05. Employees from Research and Development
+        //string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        //Console.WriteLine(result3);
 
+        //06. Adding a New Address and Updating Employee
+        string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        Console.WriteLine(result4);
     }
 
     //03. Employees Full Information
@@ -98,5 +101,29 @@ public class StartUp
         }
 
         return sb.ToString().TrimEnd();
+    }
+
+    //06. Adding a New Address and Updating Employee
+    public static string AddNewAddressToEmployee(SoftUniContext context)
+    {
+        Address newAddress = new Address()
+        {
+            AddressText = "Vitoshka 15",
+            TownId = 4
+        };
+
+        Employee? employee = context.Employees
+            .FirstOrDefault(e => e.LastName == "Nakov");
+        employee!.Address = newAddress;
+
+        context.SaveChanges();
+
+        string[] employeeAddress = context.Employees
+            .OrderByDescending(e => e.AddressId)
+            .Take(10)
+            .Select(e => e.Address!.AddressText)
+            .ToArray();
+
+        return String.Join(Environment.NewLine, employeeAddress);
     }
 }
