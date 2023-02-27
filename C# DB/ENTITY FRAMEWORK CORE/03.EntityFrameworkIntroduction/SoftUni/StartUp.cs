@@ -33,10 +33,13 @@ public class StartUp
         //string result5 = GetEmployeesInPeriod(dbContext);
         //Console.WriteLine(result5);
 
-        //08. Addresses by Town
-        string result6 = GetAddressesByTown(dbContext);
-        Console.WriteLine(result6);
+        ////08. Addresses by Town
+        //string result6 = GetAddressesByTown(dbContext);
+        //Console.WriteLine(result6);
 
+        //09. Employee 147
+        string result7 = GetEmployee147(dbContext);
+        Console.WriteLine(result7);
     }
 
     //03. Employees Full Information
@@ -200,6 +203,41 @@ public class StartUp
         foreach (var a in addresses)
         {
             sb.AppendLine($"{a.AddressText}, {a.TownName} - {a.EmployeeCount} employees");
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //09. Employee 147
+    public static string GetEmployee147(SoftUniContext context)
+    {
+        var employees = context.Employees
+            .Where(e => e.EmployeeId == 147)
+            .Select(e => new
+            {
+                e.FirstName,
+                e.LastName,
+                e.JobTitle,
+                Projects = e.EmployeesProjects
+                    .Select(ep => new
+                    {
+                        ProjectName = ep.Project.Name
+                    })
+                    .OrderBy(ep => ep.ProjectName)
+                    .ToArray()
+            })
+            .ToArray();
+
+        StringBuilder sb = new StringBuilder();
+
+        foreach (var e in employees)
+        {
+            sb.AppendLine($"{e.FirstName} {e.LastName} - {e.JobTitle}");
+
+            foreach (var ep in e.Projects)
+            {
+                sb.AppendLine($"{ep.ProjectName}");
+            }
         }
 
         return sb.ToString().TrimEnd();
