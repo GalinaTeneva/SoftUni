@@ -4,7 +4,7 @@ public class Project
 {
     public Project()
     {
-        this.Employees = new HashSet<Employee>();
+        this.EmployeesProjects = new HashSet<EmployeeProject>();
     }
 
     public int ProjectId { get; set; }
@@ -17,5 +17,5 @@ public class Project
 
     public DateTime? EndDate { get; set; }
 
-    public virtual ICollection<Employee> Employees { get; set; }
+    public virtual ICollection<EmployeeProject> EmployeesProjects { get; set; }
 }

@@ -1,9 +1,16 @@
-﻿namespace SoftUni;
+﻿using SoftUni.Data;
 
-public class Program
+namespace SoftUni;
+
+public class StartUp
 {
+    //01. Import the SoftUni Database into SQL Management Studio 
+    //02. Database First (scaffold the database)
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        SoftUniContext dbContext = new SoftUniContext();
+        Console.WriteLine("Connected!");
     }
+
+
 }
