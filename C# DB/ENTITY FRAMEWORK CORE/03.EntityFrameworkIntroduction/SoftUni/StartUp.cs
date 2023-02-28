@@ -49,9 +49,13 @@ public class StartUp
         //string result9 = GetLatestProjects(dbContext);
         //Console.WriteLine(result9);
 
-        //12. Increase Salaries
-        string result10 = IncreaseSalaries(dbContext);
-        Console.WriteLine(result10);
+        ////12. Increase Salaries
+        //string result10 = IncreaseSalaries(dbContext);
+        //Console.WriteLine(result10);
+
+        //13. Find Employees by First Name Starting with "Sa"
+        string result11 = GetEmployeesByFirstNameStartingWithSa(dbContext);
+        Console.WriteLine(result11);
     }
 
     //03. Employees Full Information
@@ -357,6 +361,32 @@ public class StartUp
         foreach (var e in employeesWithUpdatedSalaries)
         {
             sb.AppendLine($"{e.FirstName} {e.LastName} (${e.Salary:F2})");
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //13. Find Employees by First Name Starting with "Sa"
+    public static string GetEmployeesByFirstNameStartingWithSa(SoftUniContext context)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        var employees = context.Employees
+            .Where(e => e.FirstName.Trim().Substring(0, 2).ToLower() == "sa")
+            .Select(e => new
+            {
+                e.FirstName,
+                e.LastName,
+                e.JobTitle,
+                e.Salary
+            })
+            .OrderBy(e => e.FirstName)
+            .ThenBy(e => e.LastName)
+            .ToArray();
+
+        foreach (var e in employees)
+        {
+            sb.AppendLine($"{e.FirstName} {e.LastName} - {e.JobTitle} - (${e.Salary:F2})");
         }
 
         return sb.ToString().TrimEnd();
