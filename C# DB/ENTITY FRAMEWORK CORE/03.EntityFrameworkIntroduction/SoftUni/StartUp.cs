@@ -45,9 +45,13 @@ public class StartUp
         //string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
         //Console.WriteLine(result8);
 
-        //11. Find Latest 10 Projects
-        string result9 = GetLatestProjects(dbContext);
-        Console.WriteLine(result9);
+        ////11. Find Latest 10 Projects
+        //string result9 = GetLatestProjects(dbContext);
+        //Console.WriteLine(result9);
+
+        //12. Increase Salaries
+        string result10 = IncreaseSalaries(dbContext);
+        Console.WriteLine(result10);
     }
 
     //03. Employees Full Information
@@ -313,6 +317,46 @@ public class StartUp
             sb.AppendLine($"{p.Name}");
             sb.AppendLine($"{p.Description}");
             sb.AppendLine($"{p.StartDate}");
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //12. Increase Salaries
+    public static string IncreaseSalaries(SoftUniContext context)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        decimal increaseInPercent = 0.12m;
+
+        Employee[] employees = context.Employees
+            .Where(e => e.Department.Name == "Engineering" || e.Department.Name == "Tool Design" ||
+                        e.Department.Name == "Marketing" || e.Department.Name == "Information Services")
+            .ToArray();
+
+        foreach (Employee e in employees)
+        {
+            e.Salary += e.Salary * increaseInPercent;
+        }
+
+        context.SaveChanges();
+
+        var employeesWithUpdatedSalaries = context.Employees
+            .Where(e => e.Department.Name == "Engineering" || e.Department.Name == "Tool Design" ||
+                        e.Department.Name == "Marketing" || e.Department.Name == "Information Services")
+            .Select(e => new
+            {
+                e.FirstName,
+                e.LastName,
+                e.Salary
+            })
+            .OrderBy(e => e.FirstName)
+            .ThenBy(e => e.LastName)
+            .ToArray();
+
+        foreach (var e in employeesWithUpdatedSalaries)
+        {
+            sb.AppendLine($"{e.FirstName} {e.LastName} (${e.Salary:F2})");
         }
 
         return sb.ToString().TrimEnd();
