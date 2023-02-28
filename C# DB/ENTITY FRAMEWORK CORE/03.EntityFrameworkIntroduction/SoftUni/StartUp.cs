@@ -13,49 +13,53 @@ public class StartUp
     {
         SoftUniContext dbContext = new SoftUniContext();
 
-        ////03. Employees Full Information
-        //string result1 = GetEmployeesFullInformation(dbContext);
-        //Console.WriteLine(result1);
+        //03. Employees Full Information
+        string result1 = GetEmployeesFullInformation(dbContext);
+        Console.WriteLine(result1);
 
-        ////04. Employees with Salary Over 50 000
-        //string result2 = GetEmployeesWithSalaryOver50000(dbContext);
-        //Console.WriteLine(result2);
+        //04. Employees with Salary Over 50 000
+        string result2 = GetEmployeesWithSalaryOver50000(dbContext);
+        Console.WriteLine(result2);
 
-        ////05. Employees from Research and Development
-        //string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
-        //Console.WriteLine(result3);
+        //05. Employees from Research and Development
+        string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        Console.WriteLine(result3);
 
-        ////06. Adding a New Address and Updating Employee
-        //string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
-        //Console.WriteLine(result4);
+        //06. Adding a New Address and Updating Employee
+        string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        Console.WriteLine(result4);
 
-        ////07. Employees and Projects
-        //string result5 = GetEmployeesInPeriod(dbContext);
-        //Console.WriteLine(result5);
+        //07. Employees and Projects
+        string result5 = GetEmployeesInPeriod(dbContext);
+        Console.WriteLine(result5);
 
-        ////08. Addresses by Town
-        //string result6 = GetAddressesByTown(dbContext);
-        //Console.WriteLine(result6);
+        //08. Addresses by Town
+        string result6 = GetAddressesByTown(dbContext);
+        Console.WriteLine(result6);
 
-        ////09. Employee 147
-        //string result7 = GetEmployee147(dbContext);
-        //Console.WriteLine(result7);
+        //09. Employee 147
+        string result7 = GetEmployee147(dbContext);
+        Console.WriteLine(result7);
 
-        ////10. Departments with More Than 5 Employees
-        //string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
-        //Console.WriteLine(result8);
+        //10. Departments with More Than 5 Employees
+        string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
+        Console.WriteLine(result8);
 
-        ////11. Find Latest 10 Projects
-        //string result9 = GetLatestProjects(dbContext);
-        //Console.WriteLine(result9);
+        //11. Find Latest 10 Projects
+        string result9 = GetLatestProjects(dbContext);
+        Console.WriteLine(result9);
 
-        ////12. Increase Salaries
-        //string result10 = IncreaseSalaries(dbContext);
-        //Console.WriteLine(result10);
+        //12. Increase Salaries
+        string result10 = IncreaseSalaries(dbContext);
+        Console.WriteLine(result10);
 
         //13. Find Employees by First Name Starting with "Sa"
         string result11 = GetEmployeesByFirstNameStartingWithSa(dbContext);
         Console.WriteLine(result11);
+
+        //14. Delete Project by Id
+        string result12 = DeleteProjectById(dbContext);
+        Console.WriteLine(result12);
     }
 
     //03. Employees Full Information
@@ -390,5 +394,24 @@ public class StartUp
         }
 
         return sb.ToString().TrimEnd();
+    }
+
+    //14. Delete Project by Id
+    public static string DeleteProjectById(SoftUniContext context)
+    {
+        IQueryable<EmployeeProject> epToDelete = context.EmployeesProjects
+            .Where(ep => ep.ProjectId == 2);
+        context.EmployeesProjects.RemoveRange(epToDelete);
+
+        Project projectToDelete = context.Projects.Find(2)!;
+        context.Projects.Remove(projectToDelete);
+        context.SaveChanges();
+
+        string[] projectNames = context.Projects
+            .Take(10)
+            .Select(p => p.Name)
+            .ToArray();
+
+        return String.Join(Environment.NewLine, projectNames);
     }
 }
