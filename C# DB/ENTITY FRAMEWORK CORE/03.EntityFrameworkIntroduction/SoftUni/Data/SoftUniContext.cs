@@ -31,7 +31,7 @@ public partial class SoftUniContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=GALYA-PC\\SQLEXPRESS;Database=SoftUni;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=SoftUni;Integrated Security=True;");
         }
     }
 

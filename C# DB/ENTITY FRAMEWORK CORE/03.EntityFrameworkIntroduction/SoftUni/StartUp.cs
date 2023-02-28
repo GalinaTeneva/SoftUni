@@ -13,53 +13,57 @@ public class StartUp
     {
         SoftUniContext dbContext = new SoftUniContext();
 
-        //03. Employees Full Information
-        string result1 = GetEmployeesFullInformation(dbContext);
-        Console.WriteLine(result1);
+        ////03. Employees Full Information
+        //string result1 = GetEmployeesFullInformation(dbContext);
+        //Console.WriteLine(result1);
 
-        //04. Employees with Salary Over 50 000
-        string result2 = GetEmployeesWithSalaryOver50000(dbContext);
-        Console.WriteLine(result2);
+        ////04. Employees with Salary Over 50 000
+        //string result2 = GetEmployeesWithSalaryOver50000(dbContext);
+        //Console.WriteLine(result2);
 
-        //05. Employees from Research and Development
-        string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
-        Console.WriteLine(result3);
+        ////05. Employees from Research and Development
+        //string result3 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        //Console.WriteLine(result3);
 
-        //06. Adding a New Address and Updating Employee
-        string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
-        Console.WriteLine(result4);
+        ////06. Adding a New Address and Updating Employee
+        //string result4 = GetEmployeesFromResearchAndDevelopment(dbContext);
+        //Console.WriteLine(result4);
 
-        //07. Employees and Projects
-        string result5 = GetEmployeesInPeriod(dbContext);
-        Console.WriteLine(result5);
+        ////07. Employees and Projects
+        //string result5 = GetEmployeesInPeriod(dbContext);
+        //Console.WriteLine(result5);
 
-        //08. Addresses by Town
-        string result6 = GetAddressesByTown(dbContext);
-        Console.WriteLine(result6);
+        ////08. Addresses by Town
+        //string result6 = GetAddressesByTown(dbContext);
+        //Console.WriteLine(result6);
 
-        //09. Employee 147
-        string result7 = GetEmployee147(dbContext);
-        Console.WriteLine(result7);
+        ////09. Employee 147
+        //string result7 = GetEmployee147(dbContext);
+        //Console.WriteLine(result7);
 
-        //10. Departments with More Than 5 Employees
-        string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
-        Console.WriteLine(result8);
+        ////10. Departments with More Than 5 Employees
+        //string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
+        //Console.WriteLine(result8);
 
-        //11. Find Latest 10 Projects
-        string result9 = GetLatestProjects(dbContext);
-        Console.WriteLine(result9);
+        ////11. Find Latest 10 Projects
+        //string result9 = GetLatestProjects(dbContext);
+        //Console.WriteLine(result9);
 
-        //12. Increase Salaries
-        string result10 = IncreaseSalaries(dbContext);
-        Console.WriteLine(result10);
+        ////12. Increase Salaries
+        //string result10 = IncreaseSalaries(dbContext);
+        //Console.WriteLine(result10);
 
-        //13. Find Employees by First Name Starting with "Sa"
-        string result11 = GetEmployeesByFirstNameStartingWithSa(dbContext);
-        Console.WriteLine(result11);
+        ////13. Find Employees by First Name Starting with "Sa"
+        //string result11 = GetEmployeesByFirstNameStartingWithSa(dbContext);
+        //Console.WriteLine(result11);
 
-        //14. Delete Project by Id
-        string result12 = DeleteProjectById(dbContext);
-        Console.WriteLine(result12);
+        ////14. Delete Project by Id
+        //string result12 = DeleteProjectById(dbContext);
+        //Console.WriteLine(result12);
+
+        //15. Remove Town
+        string result13 = RemoveTown(dbContext);
+        Console.WriteLine(result13);
     }
 
     //03. Employees Full Information
@@ -413,5 +417,31 @@ public class StartUp
             .ToArray();
 
         return String.Join(Environment.NewLine, projectNames);
+    }
+
+    //15. Remove Town
+    public static string RemoveTown(SoftUniContext context)
+    {
+        Employee[] employees = context.Employees
+            .Where(e => e.Address!.Town!.Name == "Seattle")
+            .ToArray();
+
+        foreach (var e in employees)
+        {
+            e.Address = null;
+        }
+
+        Address[] addressesToRemove = context.Addresses
+            .Where(a => a.Town!.Name == "Seattle")
+            .ToArray();
+        //int addressesToRemoveCount = addressesToRemove.Length;
+        context.RemoveRange (addressesToRemove);
+
+        Town? townToRemove = context.Towns
+            .FirstOrDefault(t => t.Name == "Seattle");
+
+        context.SaveChanges();
+
+        return $"{addressesToRemove.Length} addresses in Seattle were deleted";
     }
 }
