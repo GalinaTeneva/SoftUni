@@ -37,9 +37,13 @@ public class StartUp
         //string result6 = GetAddressesByTown(dbContext);
         //Console.WriteLine(result6);
 
-        //09. Employee 147
-        string result7 = GetEmployee147(dbContext);
-        Console.WriteLine(result7);
+        ////09. Employee 147
+        //string result7 = GetEmployee147(dbContext);
+        //Console.WriteLine(result7);
+
+        //10. Departments with More Than 5 Employees
+        string result8 = GetDepartmentsWithMoreThan5Employees(dbContext);
+        Console.WriteLine(result8);
     }
 
     //03. Employees Full Information
@@ -237,6 +241,46 @@ public class StartUp
             foreach (var ep in e.Projects)
             {
                 sb.AppendLine($"{ep.ProjectName}");
+            }
+        }
+
+        return sb.ToString().TrimEnd();
+    }
+
+    //10. Departments with More Than 5 Employees
+    public static string GetDepartmentsWithMoreThan5Employees(SoftUniContext context)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        var departments = context.Departments
+            .Where(d => d.Employees.Count > 5)
+            .OrderBy(d => d.Employees.Count)
+            .ThenBy(d => d.Name)
+            .Select(d => new
+            {
+                DepartmentName = d.Name,
+                ManagerFirstName = d.Manager.FirstName,
+                ManagerLastName = d.Manager.LastName,
+                Employees = d.Employees
+                    .Select(e => new
+                    {
+                        EmployeeFirstName = e.FirstName,
+                        EmployeeLastName = e.LastName,
+                        EmployeeJobTitle = e.JobTitle
+                    })
+                    .OrderBy(e => e.EmployeeFirstName)
+                    .ThenBy(e => e.EmployeeLastName)
+                    .ToArray()
+            })
+            .ToArray();
+
+        foreach (var d in departments)
+        {
+            sb.AppendLine($"{d.DepartmentName} – {d.ManagerFirstName} {d.ManagerLastName}");
+
+            foreach (var e in d.Employees)
+            {
+                sb.AppendLine($"{e.EmployeeFirstName} {e.EmployeeLastName} - {e.EmployeeJobTitle}");
             }
         }
 
