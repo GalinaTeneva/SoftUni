@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.FootballBetting", "02.FootballBetting", "{E352679A-D277-4A33-B1CB-EA5C6BF3756C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting", "02.FootballBetting\P02_FootballBetting\P02_FootballBetting.csproj", "{03E381F5-68C9-410B-B3C8-7741F6CA8CC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting.Data", "02.FootballBetting\P02_FootballBetting.Data\P02_FootballBetting.Data.csproj", "{736A5C88-603D-4CB1-A167-F10A0C3EF54D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02_FootballBetting.Data.Models", "02.FootballBetting\P02_FootballBetting.Data.Models\P02_FootballBetting.Data.Models.csproj", "{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02_FootballBetting.Data.Common", "02.FootballBetting\P02_FootballBetting.Data.Common\P02_FootballBetting.Data.Common.csproj", "{BF2E225A-C0AA-4CBB-958B-5D080C342E63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03E381F5-68C9-410B-B3C8-7741F6CA8CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03E381F5-68C9-410B-B3C8-7741F6CA8CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03E381F5-68C9-410B-B3C8-7741F6CA8CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03E381F5-68C9-410B-B3C8-7741F6CA8CC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{736A5C88-603D-4CB1-A167-F10A0C3EF54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{736A5C88-603D-4CB1-A167-F10A0C3EF54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{736A5C88-603D-4CB1-A167-F10A0C3EF54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{736A5C88-603D-4CB1-A167-F10A0C3EF54D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2E225A-C0AA-4CBB-958B-5D080C342E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2E225A-C0AA-4CBB-958B-5D080C342E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2E225A-C0AA-4CBB-958B-5D080C342E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2E225A-C0AA-4CBB-958B-5D080C342E63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{03E381F5-68C9-410B-B3C8-7741F6CA8CC0} = {E352679A-D277-4A33-B1CB-EA5C6BF3756C}
+		{736A5C88-603D-4CB1-A167-F10A0C3EF54D} = {E352679A-D277-4A33-B1CB-EA5C6BF3756C}
+		{98CF63E9-4DBD-4730-8B2F-25C26B3F8AF4} = {E352679A-D277-4A33-B1CB-EA5C6BF3756C}
+		{BF2E225A-C0AA-4CBB-958B-5D080C342E63} = {E352679A-D277-4A33-B1CB-EA5C6BF3756C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9276DB2B-6C0F-4D37-9622-6A0437318C15}
+	EndGlobalSection
+EndGlobal
