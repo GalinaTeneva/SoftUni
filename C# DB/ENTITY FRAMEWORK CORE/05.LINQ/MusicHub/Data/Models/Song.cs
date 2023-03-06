@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 using MusicHub.Data.Models.Enums;
 
 namespace MusicHub.Data.Models
