@@ -14,9 +14,9 @@ namespace BookShop.Models
 
         public int BookId { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; } = null!;
 
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         public EditionType EditionType { get; set; }
 
@@ -29,7 +29,7 @@ namespace BookShop.Models
         public AgeRestriction AgeRestriction { get; set; }
 
         public int AuthorId { get; set; }
-        public virtual Author Author { get; set; }
+        public virtual Author Author { get; set; } = null!;
 
         public virtual ICollection<BookCategory> BookCategories { get; set; }
     }

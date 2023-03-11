@@ -11,8 +11,8 @@
 
         public int CategoryId { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public virtual ICollection<BookCategory> CategoryBooks { get; set; }
+        public virtual ICollection<BookCategory> CategoryBooks { get; set; } = null!;
     }
 }
