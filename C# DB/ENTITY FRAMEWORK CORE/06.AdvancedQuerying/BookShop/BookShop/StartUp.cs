@@ -32,13 +32,18 @@
             //string result = GetBooksByCategory(dbContext, input);
 
             //07. Released Before Date
-            string date = Console.ReadLine();
-            string result = GetBooksReleasedBefore(dbContext, date);
+            //string date = Console.ReadLine();
+            //string result = GetBooksReleasedBefore(dbContext, date);
 
             //08. Author Search
             //string input = Console.ReadLine();
             //string result = GetAuthorNamesEndingIn(dbContext, input);
-            //Console.WriteLine(result);
+
+            //09. Book Search
+            string input = Console.ReadLine();
+            string result = GetBookTitlesContaining(dbContext, input);
+            
+            Console.WriteLine(result);
         }
 
         //02. Age Restriction
@@ -154,17 +159,29 @@
         }
 
         //08. Author Search
-        //public static string GetAuthorNamesEndingIn(BookShopContext dbContext, string input)
-        //{
-        //    string[] authors = dbContext.Authors
-        //        .Where(a => a.FirstName.EndsWith(input))
-        //        .OrderBy(a => a.FirstName)
-        //        .ThenBy(a => a.LastName)
-        //        .Select(a => $"{a.FirstName} {a.LastName}")
-        //        .ToArray();
+        public static string GetAuthorNamesEndingIn(BookShopContext dbContext, string input)
+        {
+            string[] authors = dbContext.Authors
+                .Where(a => a.FirstName.EndsWith(input))
+                .OrderBy(a => a.FirstName)
+                .ThenBy(a => a.LastName)
+                .Select(a => $"{a.FirstName} {a.LastName}")
+                .ToArray();
 
-        //    return string.Join(Environment.NewLine, authors);
-        //}
+            return string.Join(Environment.NewLine, authors);
+        }
+
+        //09. Book Search
+        public static string GetBookTitlesContaining(BookShopContext dbContext, string input)
+        {
+            string[] books = dbContext.Books
+                .Where(b => b.Title.ToLower().Contains(input.ToLower()))
+                .OrderBy(b => b.Title)
+                .Select(b => b.Title)
+                .ToArray();
+
+            return string.Join(Environment.NewLine, books);
+        }
     }
 }
 
