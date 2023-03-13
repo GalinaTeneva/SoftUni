@@ -3,6 +3,7 @@
     using BookShop.Models.Enums;
     using Data;
     using Initializer;
+    using System.Globalization;
     using System.Text;
 
     public class StartUp
@@ -23,9 +24,21 @@
             //string result = GetBooksByPrice(dbContext);
 
             //05. Not Released In
-            int year = int.Parse(Console.ReadLine()!);
-            string result = GetBooksNotReleasedIn(dbContext, year);
-            Console.WriteLine(result);
+            //int year = int.Parse(Console.ReadLine()!);
+            //string result = GetBooksNotReleasedIn(dbContext, year);
+
+            //06. Book Titles by Category
+            //string input = Console.ReadLine();
+            //string result = GetBooksByCategory(dbContext, input);
+
+            //07. Released Before Date
+            string date = Console.ReadLine();
+            string result = GetBooksReleasedBefore(dbContext, date);
+
+            //08. Author Search
+            //string input = Console.ReadLine();
+            //string result = GetAuthorNamesEndingIn(dbContext, input);
+            //Console.WriteLine(result);
         }
 
         //02. Age Restriction
@@ -95,6 +108,63 @@
 
             return String.Join(Environment.NewLine, books);
         }
+
+        //06. Book Titles by Category
+        public static string GetBooksByCategory(BookShopContext dbContext, string input)
+        {
+            string[] categories = input
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(c => c.ToLower())
+                .ToArray();
+
+            var books = dbContext.Books
+                .Where(b => b.BookCategories
+                    .Any(bc => categories.Contains(bc.Category.Name.ToLower())))
+                .OrderBy(b => b.Title)
+                .Select(b => b.Title)
+                .ToArray();
+
+            return string.Join(Environment.NewLine, books);
+        }
+
+        //07. Released Before Date
+        public static string GetBooksReleasedBefore(BookShopContext dbContext, string dateString)
+        {
+            DateTime date = DateTime.Parse(dateString);
+
+            var books = dbContext.Books
+                .Where(b => b.ReleaseDate < date)
+                .OrderByDescending(b => b.ReleaseDate)
+                .Select(b => new
+                {
+                    b.Title,
+                    b.EditionType,
+                    b.Price,
+                })
+                .ToArray();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var book in books)
+            {
+                sb.AppendLine($"{book.Title} - {book.EditionType} - ${book.Price:F2}");
+            }
+
+            return sb.ToString().Trim();
+        }
+
+        //08. Author Search
+        //public static string GetAuthorNamesEndingIn(BookShopContext dbContext, string input)
+        //{
+        //    string[] authors = dbContext.Authors
+        //        .Where(a => a.FirstName.EndsWith(input))
+        //        .OrderBy(a => a.FirstName)
+        //        .ThenBy(a => a.LastName)
+        //        .Select(a => $"{a.FirstName} {a.LastName}")
+        //        .ToArray();
+
+        //    return string.Join(Environment.NewLine, authors);
+        //}
     }
 }
 
