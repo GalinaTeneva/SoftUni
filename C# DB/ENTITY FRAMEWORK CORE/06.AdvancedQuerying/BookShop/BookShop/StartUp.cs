@@ -1,5 +1,6 @@
 ﻿namespace BookShop
 {
+    using BookShop.Models;
     using BookShop.Models.Enums;
     using Data;
     using Initializer;
@@ -58,9 +59,12 @@
             //string result = GetTotalProfitByCategory(dbContext);
 
             //14. Most Recent Books
-            string result = GetMostRecentBooks(dbContext);
+            //string result = GetMostRecentBooks(dbContext);
 
-            Console.WriteLine(result);
+            //15. Increase Prices
+            IncreasePrices(dbContext);
+
+            //Console.WriteLine(result);
         }
 
         //02. Age Restriction
@@ -312,6 +316,22 @@
             }
 
             return sb.ToString().Trim();
+        }
+
+        //15. Increase Prices
+        public static void IncreasePrices(BookShopContext dbContext)
+        {
+            Book[] books = dbContext.Books
+                .Where(b => b.ReleaseDate.HasValue &&
+                            b.ReleaseDate.Value.Year < 2010)
+                .ToArray();
+
+            foreach (Book book in books)
+            {
+                book.Price += 5;
+            }
+
+            dbContext.SaveChanges();
         }
     }
 }
