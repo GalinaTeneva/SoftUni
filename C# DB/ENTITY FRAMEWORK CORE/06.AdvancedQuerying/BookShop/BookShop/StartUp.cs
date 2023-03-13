@@ -48,8 +48,11 @@
             //string result = GetBooksByAuthor(dbContext, input);
 
             //11. Count Books
-            int lengthCheck = int.Parse(Console.ReadLine());
-            int result = CountBooks(dbContext, lengthCheck);
+            //int lengthCheck = int.Parse(Console.ReadLine());
+            //int result = CountBooks(dbContext, lengthCheck);
+
+            //12. Total Book Copies
+            string result = CountCopiesByAuthor(dbContext);
 
             Console.WriteLine(result);
         }
@@ -223,6 +226,28 @@
                 .ToArray();
 
             return books.Count();
+        }
+
+        //12. Total Book Copies
+        public static string CountCopiesByAuthor(BookShopContext dbContext)
+        {
+            var authors = dbContext.Authors
+                .Select(a => new
+                {
+                    FullName = a.FirstName + " " + a.LastName,
+                    TotalCopies = a.Books.Sum(b => b.Copies)
+                })
+                .ToArray()
+                .OrderByDescending(b => b.TotalCopies);
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var author in authors)
+            {
+                sb.AppendLine($"{author.FullName} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().Trim();
         }
     }
 }
