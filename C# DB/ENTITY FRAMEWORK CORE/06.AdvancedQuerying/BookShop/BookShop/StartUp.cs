@@ -52,7 +52,10 @@
             //int result = CountBooks(dbContext, lengthCheck);
 
             //12. Total Book Copies
-            string result = CountCopiesByAuthor(dbContext);
+            //string result = CountCopiesByAuthor(dbContext);
+
+            //13. Profit by Category
+            string result = GetTotalProfitByCategory(dbContext);
 
             Console.WriteLine(result);
         }
@@ -245,6 +248,30 @@
             foreach (var author in authors)
             {
                 sb.AppendLine($"{author.FullName} - {author.TotalCopies}");
+            }
+
+            return sb.ToString().Trim();
+        }
+
+        //13. Profit by Category
+        public static string GetTotalProfitByCategory(BookShopContext dbContext)
+        {
+            var categories = dbContext.Categories
+                .Select(c => new
+                {
+                    c.Name,
+                    TotalProfit = c.CategoryBooks
+                        .Sum(cb => cb.Book.Price * cb.Book.Copies)
+                })
+                .ToArray()
+                .OrderByDescending(c => c.TotalProfit)
+                .ThenBy(c => c.Name);
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach(var category in categories)
+            {
+                sb.AppendLine($"{category.Name} ${category.TotalProfit:F2}");
             }
 
             return sb.ToString().Trim();
