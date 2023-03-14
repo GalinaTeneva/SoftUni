@@ -62,7 +62,10 @@
             //string result = GetMostRecentBooks(dbContext);
 
             //15. Increase Prices
-            IncreasePrices(dbContext);
+            //IncreasePrices(dbContext);
+
+            //16. Remove Books
+            RemoveBooks(dbContext);
 
             //Console.WriteLine(result);
         }
@@ -332,6 +335,23 @@
             }
 
             dbContext.SaveChanges();
+        }
+
+        //16. Remove Books
+        public static int RemoveBooks(BookShopContext dbContext)
+        {
+            Book[] books = dbContext.Books
+                .Where(b => b.Copies < 4200)
+                .ToArray();
+
+            foreach (Book book in books)
+            {
+                dbContext.Books.Remove(book);
+            }
+
+            dbContext.SaveChanges();
+
+            return books.Length;
         }
     }
 }
