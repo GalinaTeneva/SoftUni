@@ -12,7 +12,7 @@
         public static void Main()
         {
             using var dbContext = new BookShopContext();
-            //DbInitializer.ResetDatabase(db);
+            DbInitializer.ResetDatabase(db);
 
             //02. Age Restriction
             //string ageRestrictionInput = Console.ReadLine();
