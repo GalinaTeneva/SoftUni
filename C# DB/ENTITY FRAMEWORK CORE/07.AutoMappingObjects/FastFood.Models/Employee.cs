@@ -18,7 +18,7 @@
         public string Id { get; set; }
 
         [Required]
-        [StringLength(ValidationConstants.EmployeeNameMaxLength, MinimumLength = 3)]
+        [StringLength(EntitiesValidation.EmployeeNameMaxLength, MinimumLength = 3)]
         public string Name { get; set; } = null!;
 
         [Required]
@@ -26,7 +26,7 @@
         public int Age { get; set; }
 
         [Required]
-        [StringLength(ValidationConstants.EmployeeAddressMaxLength, MinimumLength = 3)]
+        [StringLength(EntitiesValidation.EmployeeAddressMaxLength, MinimumLength = 3)]
         public string Address { get; set; } = null!;
 
         [ForeignKey(nameof(Position))]

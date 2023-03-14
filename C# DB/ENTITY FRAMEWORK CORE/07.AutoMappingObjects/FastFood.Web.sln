@@ -3,13 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Core", "FastFood.Core\FastFood.Core.csproj", "{3488DA13-174A-4DD0-994C-DC50045FCE20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Web", "FastFood.Core\FastFood.Web.csproj", "{3488DA13-174A-4DD0-994C-DC50045FCE20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Data", "FastFood.Data\FastFood.Data.csproj", "{A1D9CC7E-163C-4025-9857-948E8F44C7FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Models", "FastFood.Models\FastFood.Models.csproj", "{BB6F0165-F136-42AB-93E3-1A4E5E9641E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastFood.Common", "FastFood.Common\FastFood.Common.csproj", "{AB7127BC-5D92-48B4-8CB4-452E0F09B444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Common", "FastFood.Common\FastFood.Common.csproj", "{AB7127BC-5D92-48B4-8CB4-452E0F09B444}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BCB4BF0B-09F8-41FC-98D3-EE89D38813CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{33BC691E-6882-4E91-852F-5432504A5CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FA579A9A-03E2-4DF9-ADBE-D24630F7F3BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Services.Data", "FastFood.Services.Data\FastFood.Services.Data.csproj", "{0AF8CE94-C394-4993-B4A6-268D65ABE7DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Services.Mapping", "FastFood.Services.Mapping\FastFood.Services.Mapping.csproj", "{978BC5C8-52C3-4554-9514-69E7955805E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood.Web.ViewModels", "FastFood.Web.ViewModels\FastFood.Web.ViewModels.csproj", "{E71FDC95-F143-4282-AAAA-C1E9AD7BC363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +45,29 @@ Global
 		{AB7127BC-5D92-48B4-8CB4-452E0F09B444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB7127BC-5D92-48B4-8CB4-452E0F09B444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB7127BC-5D92-48B4-8CB4-452E0F09B444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF8CE94-C394-4993-B4A6-268D65ABE7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF8CE94-C394-4993-B4A6-268D65ABE7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF8CE94-C394-4993-B4A6-268D65ABE7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF8CE94-C394-4993-B4A6-268D65ABE7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978BC5C8-52C3-4554-9514-69E7955805E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978BC5C8-52C3-4554-9514-69E7955805E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978BC5C8-52C3-4554-9514-69E7955805E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978BC5C8-52C3-4554-9514-69E7955805E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71FDC95-F143-4282-AAAA-C1E9AD7BC363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71FDC95-F143-4282-AAAA-C1E9AD7BC363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71FDC95-F143-4282-AAAA-C1E9AD7BC363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71FDC95-F143-4282-AAAA-C1E9AD7BC363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3488DA13-174A-4DD0-994C-DC50045FCE20} = {33BC691E-6882-4E91-852F-5432504A5CC1}
+		{A1D9CC7E-163C-4025-9857-948E8F44C7FA} = {BCB4BF0B-09F8-41FC-98D3-EE89D38813CF}
+		{BB6F0165-F136-42AB-93E3-1A4E5E9641E4} = {BCB4BF0B-09F8-41FC-98D3-EE89D38813CF}
+		{0AF8CE94-C394-4993-B4A6-268D65ABE7DC} = {FA579A9A-03E2-4DF9-ADBE-D24630F7F3BC}
+		{978BC5C8-52C3-4554-9514-69E7955805E1} = {FA579A9A-03E2-4DF9-ADBE-D24630F7F3BC}
+		{E71FDC95-F143-4282-AAAA-C1E9AD7BC363} = {33BC691E-6882-4E91-852F-5432504A5CC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {862DCD7D-6738-42A1-B1BB-4B09D90AAA4B}

@@ -15,7 +15,7 @@
         public int Id { get; set; }
 
         [Required]
-        [StringLength(ValidationConstants.CategoryNameMaxLength, MinimumLength = 3)]
+        [StringLength(EntitiesValidation.CategoryNameMaxLength, MinimumLength = 3)]
         public string Name { get; set; } = null!;
 
         public virtual ICollection<Item> Items { get; set; }
