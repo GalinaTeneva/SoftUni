@@ -6,10 +6,18 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Enums;
+    using FastFood.Common.EntityConfiguration;
 
     public class Order
     {
-        public int Id { get; set; }
+        public Order()
+        {
+            this.Id = Guid.NewGuid().ToString();
+            this.OrderItems = new HashSet<OrderItem>();
+        }
+
+        [Key]
+        public string Id { get; set; }
 
         [Required]
         public string Customer { get; set; } = null!;
@@ -23,11 +31,12 @@
         [NotMapped]
         public decimal TotalPrice { get; set; }
 
-        public int EmployeeId { get; set; }
+        [ForeignKey(nameof(Employee))]
+        public string EmployeeId { get; set; } = null!;
 
         [Required]
-        public Employee Employee { get; set; } = null!;
+        public virtual Employee Employee { get; set; } = null!;
 
-        public ICollection<OrderItem>? OrderItems { get; set; } = new List<OrderItem>();
+        public virtual ICollection<OrderItem>? OrderItems { get; set; }
     }
 }
