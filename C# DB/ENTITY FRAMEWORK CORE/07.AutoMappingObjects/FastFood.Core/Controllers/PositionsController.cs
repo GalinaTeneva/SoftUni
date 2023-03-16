@@ -39,6 +39,7 @@
             return RedirectToAction("All", "Positions");
         }
 
+        [HttpGet]
         public async Task<IActionResult> All()
         {
             IEnumerable<PositionsAllViewModel> positions = 
