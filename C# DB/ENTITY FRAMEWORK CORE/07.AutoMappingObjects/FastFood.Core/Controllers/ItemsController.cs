@@ -39,6 +39,7 @@
             return this.RedirectToAction("All");
         }
 
+        [HttpGet]
         public async Task<IActionResult> All()
         {
             IEnumerable<ItemsAllViewModels> items = await this.itemService.GetAllAsync();

@@ -11,6 +11,9 @@
         public const int ItemNameMinLength = 3;
         public const int ItemNameMaxLength = 30;
 
-
+        public const int EmployeeNameMinLength = 3;
+        public const int EmployeeNameMaxLength = 30;
+        public const int EmployeeAddressMinLength = 3;
+        public const int EmployeeAddressMaxLength = 30;
     }
 }

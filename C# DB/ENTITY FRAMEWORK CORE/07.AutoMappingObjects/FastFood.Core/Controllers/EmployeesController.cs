@@ -3,34 +3,46 @@
     using System;
     using AutoMapper;
     using Data;
+    using FastFood.Services.Data;
     using Microsoft.AspNetCore.Mvc;
     using ViewModels.Employees;
 
     public class EmployeesController : Controller
     {
-        private readonly FastFoodContext _context;
-        private readonly IMapper _mapper;
+        private readonly IEmployeeService employeeService;
 
-        public EmployeesController(FastFoodContext context, IMapper mapper)
+        public EmployeesController(IEmployeeService employeeService)
         {
-            _context = context;
-            _mapper = mapper;
+            this.employeeService = employeeService;
         }
 
-        public IActionResult Register()
+        [HttpGet]
+        public async Task<IActionResult> Register()
         {
-            throw new NotImplementedException();
+            IEnumerable<RegisterEmployeeViewModel> availablePositions = await this.employeeService.GetAllAvailablePositionsAsync();
+
+            return View(availablePositions.ToList());
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterEmployeeInputModel model)
+        public async Task<IActionResult> Register(RegisterEmployeeInputModel model)
         {
-            throw new NotImplementedException();
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Error", "Home");
+            }
+
+            await this.employeeService.RegisterAsync(model);
+
+            return this.RedirectToAction("All");
         }
 
-        public IActionResult All()
+        [HttpGet]
+        public async Task<IActionResult> All()
         {
-            throw new NotImplementedException();
+            IEnumerable<EmployeesAllViewModel> employees = await this.employeeService.GetAllAsync();
+
+            return View(employees.ToList());
         }
     }
 }

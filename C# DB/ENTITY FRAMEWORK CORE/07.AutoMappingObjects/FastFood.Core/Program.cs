@@ -18,10 +18,13 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddProfile<FastFoodProfile>();
 });
 
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
 // Register Services (DI)
 builder.Services.AddTransient<IPositionsService, PositionsService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IItemService, ItemService>();
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
 
