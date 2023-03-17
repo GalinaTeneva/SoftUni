@@ -1,8 +1,9 @@
-﻿using FastFood.Common.EntityConfiguration;
-using System.ComponentModel.DataAnnotations;
-
-namespace FastFood.Core.ViewModels.Items
+﻿namespace FastFood.Core.ViewModels.Items
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using FastFood.Common.EntityConfiguration;
+
     public class CreateItemInputModel
     {
 

@@ -1,8 +1,9 @@
-﻿using FastFood.Common.EntityConfiguration;
-using System.ComponentModel.DataAnnotations;
-
-namespace FastFood.Core.ViewModels.Employees
+﻿namespace FastFood.Core.ViewModels.Employees
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using FastFood.Common.EntityConfiguration;
+
     public class RegisterEmployeeInputModel
     {
         [StringLength(ViewModelsValidation.EmployeeNameMaxLength, MinimumLength = ViewModelsValidation.EmployeeNameMinLength)]

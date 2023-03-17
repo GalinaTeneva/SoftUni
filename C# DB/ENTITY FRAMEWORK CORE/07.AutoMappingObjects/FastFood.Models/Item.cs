@@ -1,9 +1,10 @@
 ﻿namespace FastFood.Models
 {
-    using FastFood.Common.EntityConfiguration;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    using FastFood.Common.EntityConfiguration;
 
     public class Item
     {

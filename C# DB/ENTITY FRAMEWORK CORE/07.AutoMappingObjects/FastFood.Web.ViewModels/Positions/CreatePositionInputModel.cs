@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-using FastFood.Common.EntityConfiguration;
-
-namespace FastFood.Core.ViewModels.Positions
+﻿namespace FastFood.Core.ViewModels.Positions
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using FastFood.Common.EntityConfiguration;
+
     public class CreatePositionInputModel
     {
         //[MinLength(ViewModelsValidation.PositionNameMinLength)]

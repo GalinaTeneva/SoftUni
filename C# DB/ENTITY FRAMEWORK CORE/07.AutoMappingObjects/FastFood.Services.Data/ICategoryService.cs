@@ -1,7 +1,7 @@
-﻿using FastFood.Core.ViewModels.Categories;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using FastFood.Core.ViewModels.Categories;
+
     public interface ICategoryService
     {
         Task CreateAsynk(CreateCategoryInputModel model);

@@ -6,8 +6,6 @@ namespace FastFood.Data
 
     using FastFood.Common.DataConfiguration;
     using Models;
-    using System.Collections.Generic;
-    using System.Reflection.Emit;
 
     public class FastFoodContext : DbContext
     {

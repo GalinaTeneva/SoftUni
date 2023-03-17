@@ -1,7 +1,7 @@
-﻿using FastFood.Core.ViewModels.Items;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using FastFood.Core.ViewModels.Items;
+
     public interface IItemService
     {
         Task CreateAsync(CreateItemInputModel model);

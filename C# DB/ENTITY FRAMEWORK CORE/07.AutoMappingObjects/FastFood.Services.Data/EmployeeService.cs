@@ -1,12 +1,14 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using FastFood.Core.ViewModels.Employees;
-using FastFood.Data;
-using FastFood.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using FastFood.Core.ViewModels.Employees;
+
+    using FastFood.Data;
+    using FastFood.Models;
+    using Microsoft.EntityFrameworkCore;
+
     public class EmployeeService : IEmployeeService
     {
         private readonly IMapper mapper;

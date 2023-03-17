@@ -1,7 +1,7 @@
-﻿using FastFood.Core.ViewModels.Employees;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using FastFood.Core.ViewModels.Employees;
+
     public interface IEmployeeService
     {
         Task RegisterAsync(RegisterEmployeeInputModel model);

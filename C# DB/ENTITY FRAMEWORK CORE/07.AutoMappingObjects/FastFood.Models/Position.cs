@@ -1,8 +1,9 @@
 ﻿namespace FastFood.Models
 {
-    using FastFood.Common.EntityConfiguration;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using FastFood.Common.EntityConfiguration;
 
     public class Position
     {

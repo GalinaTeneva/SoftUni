@@ -1,12 +1,12 @@
 ﻿namespace FastFood.Services.Mapping
 {
     using AutoMapper;
+
     using FastFood.Models;
     using FastFood.Core.ViewModels.Positions;
     using FastFood.Core.ViewModels.Categories;
     using FastFood.Core.ViewModels.Items;
     using FastFood.Core.ViewModels.Employees;
-    using System.Security.Cryptography.X509Certificates;
 
     public class FastFoodProfile : Profile
     {
@@ -45,7 +45,6 @@
 
             this.CreateMap<Employee, EmployeesAllViewModel>()
                 .ForMember(x => x.Position, y => y.MapFrom(s => s.Position.Name));
-
         }
     }
 }

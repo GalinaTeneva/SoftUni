@@ -1,7 +1,7 @@
-﻿using FastFood.Core.ViewModels.Positions;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using FastFood.Core.ViewModels.Positions;
+
     public interface IPositionsService
     {
         Task CreateAsync(CreatePositionInputModel inputModel);

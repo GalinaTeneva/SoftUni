@@ -1,13 +1,14 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using FastFood.Core.ViewModels.Items;
-using FastFood.Data;
-using FastFood.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using Microsoft.EntityFrameworkCore;
+
+    using FastFood.Data;
+    using FastFood.Models;
+    using FastFood.Core.ViewModels.Items;
+
     public class ItemService : IItemService
     {
         private readonly IMapper mapper;

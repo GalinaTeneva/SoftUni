@@ -1,12 +1,14 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using FastFood.Core.ViewModels.Categories;
-using FastFood.Data;
-using FastFood.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace FastFood.Services.Data
+﻿namespace FastFood.Services.Data
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
+    using Microsoft.EntityFrameworkCore;
+
+    using FastFood.Core.ViewModels.Categories;
+    using FastFood.Data;
+    using FastFood.Models;
+
     public class CategoryService : ICategoryService
     {
         private readonly IMapper mapper;

@@ -2,13 +2,9 @@
 {
     using System.Linq;
 
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-
-    using Data;
-    using FastFood.Models;
-    using FastFood.Services.Data;
     using Microsoft.AspNetCore.Mvc;
+
+    using FastFood.Services.Data;
     using ViewModels.Positions;
 
     public class PositionsController : Controller
