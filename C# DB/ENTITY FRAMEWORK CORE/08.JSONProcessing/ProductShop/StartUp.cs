@@ -6,6 +6,7 @@
     using DTOs.Import;
     using AutoMapper;
     using ProductShop.Models;
+    using System.Runtime.CompilerServices;
 
     public class StartUp
     {
@@ -22,8 +23,12 @@
             //string result = ImportProducts(context, inputJson);
 
             //03. Import Categories
-            string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
-            string result = ImportCategories(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
+            //string result = ImportCategories(context, inputJson);
+
+            //04. Import Categories and Products
+            string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
+            string result = ImportCategoryProducts(context, inputJson);
 
             Console.WriteLine(result);
         }
@@ -89,6 +94,31 @@
             return $"Successfully imported {validCategories.Count}";
         }
 
+        //04. Import Categories and Products
+        public static string ImportCategoryProducts(ProductShopContext context, string inputJson)
+        {
+            IMapper mapper = CreateMapper();
+
+            ImportCategoryProductDto[] categoryProductDtos = JsonConvert.DeserializeObject<ImportCategoryProductDto[]>(inputJson);
+
+            ICollection<CategoryProduct> validEntries = new HashSet<CategoryProduct>();
+            foreach (var categoryProductDto in categoryProductDtos)
+            {
+                //if (!context.Categories.Any(c => c.Id == categoryProductDto.CategoryId) ||
+                //    !context.Products.Any(p => p.Id == categoryProductDto.ProductId))
+                //{
+                //    continue;
+                //}
+
+                CategoryProduct categoryProduct = mapper.Map<CategoryProduct>(categoryProductDto);
+                validEntries.Add(categoryProduct);
+            }
+
+            context.CategoriesProducts.AddRange(validEntries);
+            context.SaveChanges();
+
+            return $"Successfully imported {validEntries.Count}";
+        }
 
         //Mapper configuration
         private static IMapper CreateMapper()

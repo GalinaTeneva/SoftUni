@@ -17,6 +17,9 @@
 
             //Category
             this.CreateMap<ImportCategoryDto, Category>();
+
+            //CateoryProduct
+            this.CreateMap<ImportCategoryProductDto, CategoryProduct>();
         }
     }
 }
