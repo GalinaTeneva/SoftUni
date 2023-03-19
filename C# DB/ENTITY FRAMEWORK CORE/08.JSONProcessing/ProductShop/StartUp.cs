@@ -7,6 +7,10 @@
     using AutoMapper;
     using ProductShop.Models;
     using System.Runtime.CompilerServices;
+    using Microsoft.EntityFrameworkCore;
+    using AutoMapper.QueryableExtensions;
+    using ProductShop.DTOs.Export;
+    using Newtonsoft.Json.Serialization;
 
     public class StartUp
     {
@@ -27,8 +31,14 @@
             //string result = ImportCategories(context, inputJson);
 
             //04. Import Categories and Products
-            string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
-            string result = ImportCategoryProducts(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/categories-products.json");
+            //string result = ImportCategoryProducts(context, inputJson);
+
+            //05. Export Products in Range
+            //string result = GetProductsInRange(context);
+
+            //06. Export Sold Products
+            string result = GetSoldProducts(context);
 
             Console.WriteLine(result);
         }
@@ -104,11 +114,11 @@
             ICollection<CategoryProduct> validEntries = new HashSet<CategoryProduct>();
             foreach (var categoryProductDto in categoryProductDtos)
             {
-                //if (!context.Categories.Any(c => c.Id == categoryProductDto.CategoryId) ||
-                //    !context.Products.Any(p => p.Id == categoryProductDto.ProductId))
-                //{
-                //    continue;
-                //}
+                if (!context.Categories.Any(c => c.Id == categoryProductDto.CategoryId) ||
+                    !context.Products.Any(p => p.Id == categoryProductDto.ProductId))
+                {
+                    continue;
+                }
 
                 CategoryProduct categoryProduct = mapper.Map<CategoryProduct>(categoryProductDto);
                 validEntries.Add(categoryProduct);
@@ -120,6 +130,57 @@
             return $"Successfully imported {validEntries.Count}";
         }
 
+
+        //05. Export Products in Range
+        public static string GetProductsInRange(ProductShopContext context)
+        {
+            IMapper mapper = CreateMapper();
+
+            ExportProductInRangeDto[] productDtos = context.Products
+                .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .OrderBy(p => p.Price)
+                .AsNoTracking()
+                .ProjectTo<ExportProductInRangeDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            return JsonConvert.SerializeObject(productDtos, Formatting.Indented);
+        }
+
+        //06. Export Sold Products
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            IContractResolver contractResolver = ConfigureCamelCaseNaming();
+
+            var usersWithSoldProducts = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.Buyer != null))
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Select(u => new
+                {
+                    u.FirstName,
+                    u.LastName,
+                    SoldProducts = u.ProductsSold
+                        .Where(p => p.Buyer != null)
+                        .Select(p => new
+                        {
+                            p.Name,
+                            p.Price,
+                            BuyerFirstName = p.Buyer.FirstName,
+                            BuyerLastName = p.Buyer.LastName
+                        })
+                        .ToArray()
+                })
+                .AsNoTracking()
+                .ToArray();
+
+            return JsonConvert.SerializeObject(usersWithSoldProducts,
+                Formatting.Indented,
+                new JsonSerializerSettings()
+                {
+                    ContractResolver = contractResolver
+                });
+        }
+
         //Mapper configuration
         private static IMapper CreateMapper()
         {
@@ -127,6 +188,14 @@
             {
                 cfg.AddProfile<ProductShopProfile>();
             }));
+        }
+
+        private static IContractResolver ConfigureCamelCaseNaming()
+        {
+            return new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy(false, true)
+            };
         }
     }
 }
