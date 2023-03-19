@@ -11,6 +11,12 @@
         {
             //User
             this.CreateMap<ImportUserDto, User>();
+
+            //Product
+            this.CreateMap<ImportProductDto, Product>();
+
+            //Category
+            this.CreateMap<ImportCategoryDto, Category>();
         }
     }
 }
