@@ -41,7 +41,10 @@
             //string result = GetSoldProducts(context);
 
             //07. Export Categories by Products Count
-            string result = GetCategoriesByProductsCount(context);
+            //string result = GetCategoriesByProductsCount(context);
+
+            //08. Export Users and Products
+            string result = GetUsersWithProducts(context);
 
             Console.WriteLine(result);
         }
@@ -206,6 +209,50 @@
                 new JsonSerializerSettings()
                 {
                     ContractResolver = contractResolver
+                });
+        }
+
+        //08. Export Users and Products
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            IContractResolver contractResolver = ConfigureCamelCaseNaming();
+
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.Buyer != null))
+                .Select(u => new
+                {
+                    u.FirstName,
+                    u.LastName,
+                    u.Age,
+                    SoldProducts = new
+                    {
+                        Count = u.ProductsSold.Count(p => p.Buyer != null),
+                        Products = u.ProductsSold
+                            .Where(p => p.Buyer != null)
+                            .Select(p => new
+                            {
+                                p.Name,
+                                p.Price
+                            })
+                            .ToArray()
+                    }
+                })
+                .OrderByDescending(u => u.SoldProducts.Count)
+                .AsNoTracking()
+                .ToArray();
+
+            var usersWrapperDto = new
+            {
+                UsersCount = users.Length,
+                Users = users
+            };
+
+            return JsonConvert.SerializeObject(usersWrapperDto,
+                Formatting.Indented,
+                new JsonSerializerSettings()
+                {
+                    ContractResolver = contractResolver,
+                    NullValueHandling = NullValueHandling.Ignore
                 });
         }
 
