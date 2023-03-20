@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-
-namespace ProductShop.DTOs.Import
+﻿namespace ProductShop.DTOs.Import
 {
+    using Newtonsoft.Json;
+
     public class ImportUserDto
     {
         [JsonProperty("firstName")]

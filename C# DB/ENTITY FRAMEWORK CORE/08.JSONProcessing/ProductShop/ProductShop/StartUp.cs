@@ -1,16 +1,16 @@
 ﻿namespace ProductShop
 {
+    using Microsoft.EntityFrameworkCore;
+
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     using Data;
     using DTOs.Import;
-    using AutoMapper;
-    using ProductShop.Models;
-    using System.Runtime.CompilerServices;
-    using Microsoft.EntityFrameworkCore;
-    using AutoMapper.QueryableExtensions;
-    using ProductShop.DTOs.Export;
-    using Newtonsoft.Json.Serialization;
+    using DTOs.Export;
+    using Models;
 
     public class StartUp
     {

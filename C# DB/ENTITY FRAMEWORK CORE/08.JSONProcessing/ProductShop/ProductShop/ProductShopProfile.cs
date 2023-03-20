@@ -4,7 +4,7 @@
 
     using DTOs.Import;
     using Models;
-    using ProductShop.DTOs.Export;
+    using DTOs.Export;
 
     public class ProductShopProfile : Profile
     {
