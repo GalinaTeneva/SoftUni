@@ -38,7 +38,10 @@
             //string result = GetProductsInRange(context);
 
             //06. Export Sold Products
-            string result = GetSoldProducts(context);
+            //string result = GetSoldProducts(context);
+
+            //07. Export Categories by Products Count
+            string result = GetCategoriesByProductsCount(context);
 
             Console.WriteLine(result);
         }
@@ -174,6 +177,31 @@
                 .ToArray();
 
             return JsonConvert.SerializeObject(usersWithSoldProducts,
+                Formatting.Indented,
+                new JsonSerializerSettings()
+                {
+                    ContractResolver = contractResolver
+                });
+        }
+
+        //07. Export Categories by Products Count
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            IContractResolver contractResolver = ConfigureCamelCaseNaming();
+
+            var categories = context.Categories
+                .OrderByDescending(c => c.CategoriesProducts.Count)
+                .Select(c => new
+                {
+                    Category = c.Name,
+                    ProductsCount = c.CategoriesProducts.Count,
+                    AveragePrice = (c.CategoriesProducts.Average(p => p.Product.Price)).ToString("F2"),
+                    TotalRevenue = (c.CategoriesProducts.Sum(p => p.Product.Price)).ToString("F2")
+                })
+                .AsNoTracking()
+                .ToArray();
+
+            return JsonConvert.SerializeObject(categories,
                 Formatting.Indented,
                 new JsonSerializerSettings()
                 {
