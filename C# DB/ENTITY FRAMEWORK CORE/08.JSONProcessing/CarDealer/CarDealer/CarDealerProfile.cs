@@ -12,17 +12,14 @@ namespace CarDealer
         {
             //Supplier
             this.CreateMap<ImportSupplierDto, Supplier>();
+            this.CreateMap<Supplier, ExportLocalSuppliersDto>()
+                .ForMember(d => d.PartsCount, o => o.MapFrom(s => s.Parts.Count));
 
             //Part
             this.CreateMap<ImportPartDto, Part>();
 
             //Car
-            this.CreateMap<ImportCarDto, Car>()
-                .ForMember(d => d.PartsCars, o => o.MapFrom(s => s.PartsId));
             this.CreateMap<Car, ExportCarsFromMakeToyotaDto>();
-
-            //PartsCars
-            this.CreateMap<ImportPartCarDto, PartCar>();
 
             //Customer
             this.CreateMap<ImportCustomerDto, Customer>();

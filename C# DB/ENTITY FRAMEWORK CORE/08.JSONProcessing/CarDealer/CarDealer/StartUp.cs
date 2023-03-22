@@ -29,8 +29,8 @@ namespace CarDealer
             //string result = ImportParts(context, inputJson);
 
             //03. Import Cars
-            string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
-            string result = ImportCars(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
+            //string result = ImportCars(context, inputJson);
 
             //04. Import Customers
             //string inputJson = File.ReadAllText(@"../../../Datasets/customers.json");
@@ -45,6 +45,9 @@ namespace CarDealer
 
             //07. Export Cars From Make Toyota
             //string result = GetCarsFromMakeToyota(context);
+
+            //08. Export Local Suppliers
+            string result = GetLocalSuppliers(context);
 
             Console.WriteLine(result);
         }
@@ -184,6 +187,20 @@ namespace CarDealer
                 .ToArray();
 
             return JsonConvert.SerializeObject(cars, Formatting.Indented);
+        }
+
+        //08. Export Local Suppliers
+        public static string GetLocalSuppliers(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
+
+            ExportLocalSuppliersDto[] suppliers = context.Suppliers
+                .Where(s => s.IsImporter == false)
+                .AsNoTracking()
+                .ProjectTo<ExportLocalSuppliersDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
         }
 
         private static IMapper CreateMapper()
