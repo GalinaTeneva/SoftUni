@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using CarDealer.DTOs.Export;
 using CarDealer.DTOs.Import;
 using CarDealer.Models;
+using System.Globalization;
 
 namespace CarDealer
 {
@@ -19,6 +21,8 @@ namespace CarDealer
 
             //Customer
             this.CreateMap<ImportCustomerDto, Customer>();
+            this.CreateMap<Customer, ExportOrderedCustomersDto>()
+                .ForMember(d => d.BirthDate, o => o.MapFrom(s => s.BirthDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture)));
 
             //Sale
             this.CreateMap<ImportSaleDto, Sale>();

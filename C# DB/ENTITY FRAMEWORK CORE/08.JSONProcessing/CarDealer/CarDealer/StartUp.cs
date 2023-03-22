@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CarDealer.Data;
+using CarDealer.DTOs.Export;
 using CarDealer.DTOs.Import;
 using CarDealer.Models;
+using Microsoft.Data.SqlClient.Server;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 using System.IO;
 
 namespace CarDealer
@@ -24,17 +29,17 @@ namespace CarDealer
 
             //03. Import Cars
             //string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
-            //string result = ImportParts(context, inputJson);
+            //string result = ImportCars(context, inputJson);
 
             //04. Import Customers
-            //string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
-            //string result = ImportParts(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/customers.json");
+            //string result = ImportCustomers(context, inputJson);
 
             //05. Import Sales
-            string inputJson = File.ReadAllText(@"../../../Datasets/sales.json");
-            string result = ImportSales(context, inputJson);
+            //string inputJson = File.ReadAllText(@"../../../Datasets/sales.json");
+            //string result = ImportSales(context, inputJson);
 
-            Console.WriteLine(result);
+            Console.WriteLine(GetOrderedCustomers(context));
         }
 
         //01. Import Suppliers
@@ -134,6 +139,35 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {sales.Length}.";
+        }
+
+        //06. Export Ordered Customers
+        public static string GetOrderedCustomers(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
+
+            ExportOrderedCustomersDto[] customersDtos = context.Customers
+                .OrderBy(c => c.BirthDate)
+                .ThenBy(c => c.IsYoungDriver)
+                .AsNoTracking()
+                .ProjectTo<ExportOrderedCustomersDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            return JsonConvert.SerializeObject(customersDtos, Formatting.Indented);
+
+            //var orderedCustomers = context.Customers
+            //    .OrderBy(c => c.BirthDate)
+            //    .ThenBy(c => c.IsYoungDriver)
+            //    .Select(c => new
+            //    {
+            //        c.Name,
+            //        BirthDate = c.BirthDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
+            //        c.IsYoungDriver
+            //    })
+            //    .AsNoTracking()
+            //    .ToArray();
+
+            //return JsonConvert.SerializeObject(orderedCustomers, Formatting.Indented);
         }
 
         private static IMapper CreateMapper()
