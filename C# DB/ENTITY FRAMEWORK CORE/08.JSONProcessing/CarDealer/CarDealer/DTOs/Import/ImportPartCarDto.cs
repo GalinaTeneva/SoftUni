@@ -5,7 +5,7 @@ namespace CarDealer.DTOs.Import
 {
     public class ImportPartCarDto
     {
-        [JsonProperty("partsId")]
+        //[JsonProperty("partsId")]
         public int PartId { get; set; }
     }
 }

@@ -5,11 +5,6 @@ namespace CarDealer.DTOs.Import
 {
     public class ImportCarDto
     {
-        public ImportCarDto()
-        {
-            this.PartsCars = new List<ImportPartCarDto>();
-        }
-
         [JsonProperty("make")]
         public string Make { get; set; } = null!;
 
@@ -17,8 +12,9 @@ namespace CarDealer.DTOs.Import
         public string Model { get; set; } = null!;
 
         [JsonProperty("traveledDistance")]
-        public long TravelledDistance { get; set; }
+        public long TraveledDistance { get; set; }
 
-        public ICollection<ImportPartCarDto> PartsCars { get; set; }
+        [JsonProperty("partsId")]
+        public int[] PartsId { get; set; } = null!;
     }
 }

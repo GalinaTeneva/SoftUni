@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient.Server;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
@@ -28,8 +29,8 @@ namespace CarDealer
             //string result = ImportParts(context, inputJson);
 
             //03. Import Cars
-            //string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
-            //string result = ImportCars(context, inputJson);
+            string inputJson = File.ReadAllText(@"../../../Datasets/cars.json");
+            string result = ImportCars(context, inputJson);
 
             //04. Import Customers
             //string inputJson = File.ReadAllText(@"../../../Datasets/customers.json");
@@ -39,7 +40,13 @@ namespace CarDealer
             //string inputJson = File.ReadAllText(@"../../../Datasets/sales.json");
             //string result = ImportSales(context, inputJson);
 
-            Console.WriteLine(GetOrderedCustomers(context));
+            //06. Export Ordered Customers
+            //string result = GetOrderedCustomers(context)
+
+            //07. Export Cars From Make Toyota
+            //string result = GetCarsFromMakeToyota(context);
+
+            Console.WriteLine(result);
         }
 
         //01. Import Suppliers
@@ -83,33 +90,40 @@ namespace CarDealer
         }
 
         //03. Import Cars
-        //public static string ImportCars(CarDealerContext context, string inputJson)
-        //{
-        //    IMapper mapper = CreateMapper();
+        //REWRITE THE LOGIC!!!
+        public static string ImportCars(CarDealerContext context, string inputJson)
+        {
+            ImportCarDto[] carsDto = JsonConvert.DeserializeObject <ImportCarDto[]>(inputJson);
 
-        //    ImportPartCarDto[] importPartCarDtos = JsonConvert.DeserializeObject<ImportPartCarDto[]>(inputJson);
-        //    ICollection<PartCar> partsCars = new HashSet<PartCar>();
-        //    foreach (ImportPartCarDto importPartCarDto in importPartCarDtos)
-        //    {
-        //        PartCar partCar = mapper.Map<PartCar>(importPartCarDto);
-        //        partsCars.Add(partCar);
-        //    }
+            List<PartCar> parts = new List<PartCar>();
+            List<Car> cars = new List<Car>();
 
-        //    ImportCarDto[] importCarDtos = JsonConvert.DeserializeObject<ImportCarDto[]>(inputJson.);
-        //    ICollection<Car> cars = new HashSet<Car>();
-        //    foreach (ImportCarDto importCarDto in importCarDtos)
-        //    {
-        //        Car car = mapper.Map<Car>(importCarDto);
-        //        cars.Add(car);
-        //    }
+            foreach (ImportCarDto dto in carsDto)
+            {
+                Car car = new Car()
+                {
+                    Make = dto.Make,
+                    Model = dto.Model,
+                    TraveledDistance = dto.TraveledDistance
+                };
+                cars.Add(car);
 
-        //    context.PartsCars.AddRange(partsCars);
-        //    context.Cars.AddRange(cars);
-        //    context.SaveChanges();
+                foreach (var part in dto.PartsId.Distinct())
+                {
+                    PartCar partCar = new PartCar()
+                    {
+                        Car = car,
+                        PartId = part,
+                    };
+                    parts.Add(partCar);
+                }
+            }
 
-        //    return $"Successfully imported {cars.Count}.";
-        //}
-
+            context.Cars.AddRange(cars);
+            context.PartsCars.AddRange(parts);
+            context.SaveChanges();
+            return $"Successfully imported {cars.Count}.";
+        }
 
         //04. Import Customers
         public static string ImportCustomers(CarDealerContext context, string inputJson)
@@ -154,20 +168,22 @@ namespace CarDealer
                 .ToArray();
 
             return JsonConvert.SerializeObject(customersDtos, Formatting.Indented);
+        }
 
-            //var orderedCustomers = context.Customers
-            //    .OrderBy(c => c.BirthDate)
-            //    .ThenBy(c => c.IsYoungDriver)
-            //    .Select(c => new
-            //    {
-            //        c.Name,
-            //        BirthDate = c.BirthDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
-            //        c.IsYoungDriver
-            //    })
-            //    .AsNoTracking()
-            //    .ToArray();
+        //07. Export Cars From Make Toyota
+        public static string GetCarsFromMakeToyota(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
 
-            //return JsonConvert.SerializeObject(orderedCustomers, Formatting.Indented);
+            var cars = context.Cars
+                .Where(c => c.Make == "Toyota")
+                .OrderBy(c => c.Model)
+                .ThenByDescending(c => c.TraveledDistance)
+                .AsNoTracking()
+                .ProjectTo<ExportCarsFromMakeToyotaDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            return JsonConvert.SerializeObject(cars, Formatting.Indented);
         }
 
         private static IMapper CreateMapper()
