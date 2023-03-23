@@ -16,8 +16,8 @@
         public int Quantity { get; set; }
 
         public int SupplierId { get; set; }
-        public Supplier Supplier { get; set; } = null!;
+        public virtual Supplier Supplier { get; set; } = null!;
 
-        public ICollection<PartCar> PartsCars { get; set; }
+        public virtual ICollection<PartCar> PartsCars { get; set; }
     }
 }

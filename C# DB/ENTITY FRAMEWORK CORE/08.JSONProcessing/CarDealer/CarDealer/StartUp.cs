@@ -50,7 +50,10 @@ namespace CarDealer
             //string result = GetLocalSuppliers(context);
 
             //09. Export Cars With Their List Of Parts
-            string result = GetCarsWithTheirListOfParts(context);
+            //string result = GetCarsWithTheirListOfParts(context);
+
+            //10. Export Total Sales By Customer
+            string result = GetTotalSalesByCustomer(context);
 
             Console.WriteLine(result);
         }
@@ -96,7 +99,6 @@ namespace CarDealer
         }
 
         //03. Import Cars
-        //REWRITE THE LOGIC!!!
         public static string ImportCars(CarDealerContext context, string inputJson)
         {
             ImportCarDto[] carsDto = JsonConvert.DeserializeObject <ImportCarDto[]>(inputJson);
@@ -230,6 +232,28 @@ namespace CarDealer
 
             return JsonConvert.SerializeObject(carsWithParts, Formatting.Indented);
         }
+
+        //10. Export Total Sales By Customer
+        //public static string GetTotalSalesByCustomer(CarDealerContext context)
+        //{
+        //    IMapper mapper = CreateMapper();
+
+        //    var customers = context.Customers
+        //        .Where(c => c.Sales.Any(s => s.Customer != null))
+        //        .AsNoTracking()
+        //        .ProjectTo<ExportTotalSalesByCustomerDto>(mapper.ConfigurationProvider)
+        //        .OrderByDescending(c => c.SpentMoney)
+        //        .OrderByDescending(c => c.BoughtCars)
+        //        .ToArray();
+
+        //    return JsonConvert.SerializeObject(customers, Formatting.Indented);
+        //}
+
+        //11. Export Sales With Applied Discount
+        //public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        //{
+        // WRITE LOGIC HERE!!!
+        //}
 
         private static IMapper CreateMapper()
         {

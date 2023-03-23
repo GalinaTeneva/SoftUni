@@ -19,8 +19,8 @@ namespace CarDealer.Models
         [Column("TravelledDistance")]
         public long TraveledDistance { get; set; }
 
-        public ICollection<Sale> Sales { get; set; }   
+        public virtual ICollection<Sale> Sales { get; set; }   
 
-        public ICollection<PartCar> PartsCars { get; set; }
+        public virtual ICollection<PartCar> PartsCars { get; set; }
     }
 }
