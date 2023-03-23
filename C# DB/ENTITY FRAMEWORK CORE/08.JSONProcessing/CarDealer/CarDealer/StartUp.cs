@@ -47,7 +47,10 @@ namespace CarDealer
             //string result = GetCarsFromMakeToyota(context);
 
             //08. Export Local Suppliers
-            string result = GetLocalSuppliers(context);
+            //string result = GetLocalSuppliers(context);
+
+            //09. Export Cars With Their List Of Parts
+            string result = GetCarsWithTheirListOfParts(context);
 
             Console.WriteLine(result);
         }
@@ -201,6 +204,31 @@ namespace CarDealer
                 .ToArray();
 
             return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
+        }
+
+        //09. Export Cars With Their List Of Parts
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            var carsWithParts = context.Cars
+                .Select(c => new
+                {
+                    car = new
+                    {
+                        c.Make,
+                        c.Model,
+                        c.TraveledDistance
+                    },
+                    parts = c.PartsCars
+                    .Select(p => new
+                    {
+                        p.Part.Name,
+                        Price = p.Part.Price.ToString("F2")
+                    })
+                    .ToArray()
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(carsWithParts, Formatting.Indented);
         }
 
         private static IMapper CreateMapper()
