@@ -18,8 +18,12 @@ namespace CarDealer
             //string result = ImportSuppliers(context, inputXml);
 
             //10. Import Parts
-            string inputXml = File.ReadAllText("../../../Datasets/parts.xml");
-            string result = ImportParts(context, inputXml);
+            //string inputXml = File.ReadAllText("../../../Datasets/parts.xml");
+            //string result = ImportParts(context, inputXml);
+
+            //11. Import Cars
+            string inputXml = File.ReadAllText("../../../Datasets/cars.xml");
+            string result = ImportCars(context, inputXml);
 
             Console.WriteLine(result);
         }
@@ -91,6 +95,48 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {validParts.Count}";
+        }
+
+        //11. Import Cars
+        public static string ImportCars(CarDealerContext context, string inputXml)
+        {
+            IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new XmlHelper();
+
+            ImportCarDto[] carDtos = xmlHelper.Deserialize<ImportCarDto[]>(inputXml, "Cars");
+
+            ICollection<Car> validCars = new HashSet<Car>();
+            foreach (ImportCarDto carDto in carDtos)
+            {
+                if (string.IsNullOrEmpty(carDto.Make) ||
+                    string.IsNullOrEmpty(carDto.Model))
+                {
+                    continue;
+                }
+
+                Car car = mapper.Map<Car>(carDto);
+
+                foreach (ImportCarPartDto partDto in carDto.Parts.DistinctBy(p => p.PartId))
+                {
+                    if (!context.Parts.Any(p => p.Id == partDto.PartId))
+                    {
+                        continue;
+                    }
+
+                    PartCar partCar = new PartCar()
+                    {
+                        PartId = partDto.PartId
+                    };
+                    car.PartsCars.Add(partCar);
+                }
+
+                validCars.Add(car);
+            }
+
+            context.Cars.AddRange(validCars);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCars.Count}";
         }
 
         private static IMapper CreateMapper()
