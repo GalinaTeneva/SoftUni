@@ -45,7 +45,10 @@ namespace CarDealer
             //string result = GetCarsFromMakeBmw(context);
 
             //16. Export Local Suppliers
-            string result = GetLocalSuppliers(context);
+            //string result = GetLocalSuppliers(context);
+
+            //17. Export Cars With Their List Of Parts
+            string result = GetCarsWithTheirListOfParts(context);
 
             Console.WriteLine(result);
         }
@@ -264,6 +267,23 @@ namespace CarDealer
                 .ToArray();
 
             return xmlHelper.Serialize<ExportLocalSupplierDto[]>(supplierDtos, "suppliers");
+        }
+
+        //17. Export Cars With Their List Of Parts
+        public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new XmlHelper();
+
+            ExportCarWithPartsDto[] carsWithParts = context
+                .Cars
+                .OrderByDescending(c => c.TraveledDistance)
+                .ThenBy(c => c.Model)
+                .Take(5)
+                .ProjectTo<ExportCarWithPartsDto>(mapper.ConfigurationProvider)
+                .ToArray();
+
+            return xmlHelper.Serialize(carsWithParts, "cars");
         }
 
         private static IMapper CreateMapper()
