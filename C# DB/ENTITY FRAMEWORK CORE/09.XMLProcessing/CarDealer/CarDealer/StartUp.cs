@@ -48,7 +48,10 @@ namespace CarDealer
             //string result = GetLocalSuppliers(context);
 
             //17. Export Cars With Their List Of Parts
-            string result = GetCarsWithTheirListOfParts(context);
+            //string result = GetCarsWithTheirListOfParts(context);
+
+            //18. Export Total Sales by Customer
+            string result = GetTotalSalesByCustomer(context);
 
             Console.WriteLine(result);
         }
@@ -284,6 +287,28 @@ namespace CarDealer
                 .ToArray();
 
             return xmlHelper.Serialize(carsWithParts, "cars");
+        }
+
+        //18. Export Total Sales by Customer
+        public static string GetTotalSalesByCustomer(CarDealerContext context)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+
+            var salesByCustomer = context.Customers
+                .Where(c => c.Sales.Any())
+                .ToArray()
+                .Select(c => new ExportTotalSalesByCustomers
+                {
+                    Name = c.Name,
+                    BoughtCars = c.Sales.Count,
+                    SpentMoney = c.IsYoungDriver ?
+                        Math.Round(0.95m * c.Sales.Sum(s => s.Car.PartsCars.Sum(pc => pc.Part.Price)), 2, MidpointRounding.ToZero) :
+                        Math.Round(c.Sales.Sum(s => s.Car.PartsCars.Sum(pc => pc.Part.Price)), 2, MidpointRounding.ToZero)
+                })
+                .OrderByDescending(c => c.SpentMoney)
+                .ToArray();
+
+            return xmlHelper.Serialize<ExportTotalSalesByCustomers[]>(salesByCustomer, "customers");
         }
 
         private static IMapper CreateMapper()
