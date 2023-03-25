@@ -3,6 +3,7 @@ using CarDealer.Data;
 using CarDealer.DTOs.Import;
 using CarDealer.Models;
 using CarDealer.Utilities;
+using Castle.Core.Resource;
 using System.IO;
 
 namespace CarDealer
@@ -22,8 +23,12 @@ namespace CarDealer
             //string result = ImportParts(context, inputXml);
 
             //11. Import Cars
-            string inputXml = File.ReadAllText("../../../Datasets/cars.xml");
-            string result = ImportCars(context, inputXml);
+            //string inputXml = File.ReadAllText("../../../Datasets/cars.xml");
+            //string result = ImportCars(context, inputXml);
+
+            //12. Import Customers
+            string inputXml = File.ReadAllText("../../../Datasets/customers.xml");
+            string result = ImportCustomers(context, inputXml);
 
             Console.WriteLine(result);
         }
@@ -137,6 +142,33 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {validCars.Count}";
+        }
+
+        //12. Import Customers
+        public static string ImportCustomers(CarDealerContext context, string inputXml)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+            IMapper mapper = CreateMapper();
+
+            ImportCustomerDto[] customersDto = xmlHelper.Deserialize<ImportCustomerDto[]>(inputXml, "Customers");
+
+            ICollection<Customer> validCustomers = new HashSet<Customer>(); 
+            foreach (ImportCustomerDto customerDto in customersDto)
+            {
+                if (string.IsNullOrEmpty(customerDto.Name) ||
+                    string.IsNullOrEmpty(customerDto.BirthDate))
+                {
+                    continue;
+                }
+
+                Customer customer = mapper.Map<Customer>(customerDto);
+                validCustomers.Add(customer);
+            }
+
+            context.Customers.AddRange(validCustomers);
+            context.SaveChanges();
+
+            return $"Successfully imported {validCustomers.Count}";
         }
 
         private static IMapper CreateMapper()
