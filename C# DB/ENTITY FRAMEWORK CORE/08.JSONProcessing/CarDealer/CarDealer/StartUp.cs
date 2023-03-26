@@ -53,7 +53,10 @@ namespace CarDealer
             //string result = GetCarsWithTheirListOfParts(context);
 
             //10. Export Total Sales By Customer
-            string result = GetTotalSalesByCustomer(context);
+            //string result = GetTotalSalesByCustomer(context);
+
+            //11. Export Sales With Applied Discount
+            string result = GetSalesWithAppliedDiscount(context);
 
             Console.WriteLine(result);
         }
@@ -254,11 +257,32 @@ namespace CarDealer
             return JsonConvert.SerializeObject(customers, Formatting.Indented);
         }
 
-        ////11. Export Sales With Applied Discount
-        //public static string GetSalesWithAppliedDiscount(CarDealerContext context)
-        //{
-        //    WRITE LOGIC HERE!!!
-        //}
+        //11. Export Sales With Applied Discount
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
+
+            var sales = context.Sales
+                .Take(10)
+                .AsNoTracking()
+                .Select(s => new
+                {
+                    car = new
+                    {
+                        s.Car.Make,
+                        s.Car.Model,
+                        s.Car.TraveledDistance,
+
+                    },
+                    customerName = s.Customer.Name,
+                    discount = s.Discount.ToString("F2"),
+                    price = s.Car.PartsCars.Sum(pc => pc.Part.Price).ToString("F2"),
+                    priceWithDiscount = ((s.Car.PartsCars.Sum(pc => pc.Part.Price)) - (s.Car.PartsCars.Sum(pc => pc.Part.Price) * s.Discount / 100)).ToString("F2")
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(sales, Formatting.Indented);
+        }
 
         private static IMapper CreateMapper()
         {
