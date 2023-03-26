@@ -101,7 +101,7 @@ namespace CarDealer
         //03. Import Cars
         public static string ImportCars(CarDealerContext context, string inputJson)
         {
-            ImportCarDto[] carsDto = JsonConvert.DeserializeObject <ImportCarDto[]>(inputJson);
+            ImportCarDto[] carsDto = JsonConvert.DeserializeObject<ImportCarDto[]>(inputJson);
 
             List<PartCar> parts = new List<PartCar>();
             List<Car> cars = new List<Car>();
@@ -234,25 +234,30 @@ namespace CarDealer
         }
 
         //10. Export Total Sales By Customer
-        //public static string GetTotalSalesByCustomer(CarDealerContext context)
-        //{
-        //    IMapper mapper = CreateMapper();
+        public static string GetTotalSalesByCustomer(CarDealerContext context)
+        {
+            IMapper mapper = CreateMapper();
 
-        //    var customers = context.Customers
-        //        .Where(c => c.Sales.Any(s => s.Customer != null))
-        //        .AsNoTracking()
-        //        .ProjectTo<ExportTotalSalesByCustomerDto>(mapper.ConfigurationProvider)
-        //        .OrderByDescending(c => c.SpentMoney)
-        //        .OrderByDescending(c => c.BoughtCars)
-        //        .ToArray();
+            var customers = context.Customers
+                .Where(c => c.Sales.Any())
+                .ToArray()
+                .Select(c => new ExportTotalSalesByCustomerDto
+                {
+                    FullName = c.Name,
+                    BoughtCars = c.Sales.Count,
+                    SpentMoney = c.Sales.Sum(s => s.Car.PartsCars.Sum(pc => pc.Part.Price))
+                })
+                .OrderByDescending(c => c.SpentMoney)
+                .ThenBy(c => c.BoughtCars)
+                .ToArray();
 
-        //    return JsonConvert.SerializeObject(customers, Formatting.Indented);
-        //}
+            return JsonConvert.SerializeObject(customers, Formatting.Indented);
+        }
 
-        //11. Export Sales With Applied Discount
+        ////11. Export Sales With Applied Discount
         //public static string GetSalesWithAppliedDiscount(CarDealerContext context)
         //{
-        // WRITE LOGIC HERE!!!
+        //    WRITE LOGIC HERE!!!
         //}
 
         private static IMapper CreateMapper()

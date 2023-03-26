@@ -16,7 +16,7 @@ namespace CarDealer.Models
 
         public string Model { get; set; } = null!;
 
-        [Column("TravelledDistance")]
+        //[Column("TravelledDistance")]
         public long TraveledDistance { get; set; }
 
         public virtual ICollection<Sale> Sales { get; set; }   
