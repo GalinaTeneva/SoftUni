@@ -47,6 +47,11 @@
                       .HasForeignKey(x => x.SellerId)
                       .OnDelete(DeleteBehavior.NoAction);
             });
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(x => x.BuyerId).IsRequired(false);
+            });
         }
     }
 }
