@@ -51,7 +51,10 @@ namespace CarDealer
             //string result = GetCarsWithTheirListOfParts(context);
 
             //18. Export Total Sales by Customer
-            string result = GetTotalSalesByCustomer(context);
+            //string result = GetTotalSalesByCustomer(context);
+
+            //19. Export Sales With Applied Discount
+            string result = GetSalesWithAppliedDiscount(context);
 
             Console.WriteLine(result);
         }
@@ -309,6 +312,31 @@ namespace CarDealer
                 .ToArray();
 
             return xmlHelper.Serialize<ExportTotalSalesByCustomers[]>(salesByCustomer, "customers");
+        }
+
+        //19. Export Sales With Applied Discount
+        public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+
+            ExportSalesWithDiscountDto[] sales = context.Sales
+                .ToArray()
+                .Select(s => new ExportSalesWithDiscountDto
+                {
+                    CarDto = new ExportCarXmlAttributeDto
+                    {
+                        Make = s.Car.Make,
+                        Model = s.Car.Model,
+                        TraveledDistance = s.Car.TraveledDistance
+                    },
+                    Discount = s.Discount,
+                    CustomerName = s.Customer.Name,
+                    Price = s.Car.PartsCars.Sum(pc => pc.Part.Price),
+                    PriceWithDiscount = ((double)s.Car.PartsCars.Sum(pc => pc.Part.Price) - ((double)(s.Discount/100) * (double)s.Car.PartsCars.Sum(pc => pc.Part.Price)))
+                })
+                .ToArray();
+
+            return xmlHelper.Serialize<ExportSalesWithDiscountDto>(sales, "sales");
         }
 
         private static IMapper CreateMapper()
