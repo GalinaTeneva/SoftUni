@@ -11,7 +11,12 @@ namespace ProductShop
         {
             //User
             this.CreateMap<ImportUserDto, User>();
-            this.CreateMap<User, ExportUserDto>();
+
+            this.CreateMap<Product, ExportProductsDto>();
+            this.CreateMap<User, ExportSoldProductsByUserDto>()
+                .ForMember(d => d.UserFirstName, o => o.MapFrom(s => s.FirstName))
+                .ForMember(d => d.UserLastName, o => o.MapFrom(s => s.LastName))
+                .ForMember(d => d.ProductsSold, o => o.MapFrom(s => s.ProductsSold.ToArray()));
 
             //Product
             this.CreateMap<ImportProductDto, Product>();
@@ -20,9 +25,14 @@ namespace ProductShop
 
             //Category
             this.CreateMap<ImportCategoryDto, Category>();
+            this.CreateMap<Category, ExportCategoriesByProductDto>()
+                .ForMember(d => d.ProductsCount, o => o.MapFrom(s => s.CategoryProducts.Count))
+                .ForMember(d => d.AveragePrice, o => o.MapFrom(s => s.CategoryProducts.Average(cp => cp.Product.Price)))
+                .ForMember(d => d.TotalRevenue, o => o.MapFrom(s => s.CategoryProducts.Sum(cp => cp.Product.Price)));
 
             //CategoryProduct
             this.CreateMap<ImportCategoryProductDto, CategoryProduct>();
+
         }
     }
 }

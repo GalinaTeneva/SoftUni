@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using ProductShop.Data;
 using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
@@ -33,7 +34,13 @@ namespace ProductShop
             //string result = ImportCategoryProducts(context, inputXml);
 
             //05. Export Products In Range
-            string result = GetProductsInRange(context);
+            //string result = GetProductsInRange(context);
+
+            //06. Export Sold Products
+            //string result = GetSoldProducts(context);
+
+            //07. Export Categories By Products Count
+            string result = GetCategoriesByProductsCount(context);
 
             Console.WriteLine(result);
         }
@@ -154,31 +161,50 @@ namespace ProductShop
         public static string GetProductsInRange(ProductShopContext context)
         {
             IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new XmlHelper();
 
             var products = context.Products
                 .Where(p => p.Price >= 500 && p.Price <= 1000)
                 .OrderBy(p => p.Price)
                 .Take(10)
-                //.Select(p => new ExportProductsInRangeDto
-                //{
-                //    Name = p.Name,
-                //    Price = p.Price.ToString("F2"),
-                //    Buyer = $"{p.Buyer.FirstName} {p.Buyer.LastName}"
-                //})
                 .ProjectTo<ExportProductsInRangeDto>(mapper.ConfigurationProvider)
                 .ToArray();
 
-            XmlRootAttribute xmlRoot = new XmlRootAttribute("Products");
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ExportProductsInRangeDto[]), xmlRoot);
+            return xmlHelper.Serialize(products, "Products");
+        }
 
-            XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
-            namespaces.Add(string.Empty, string.Empty);
+        //06. Export Sold Products
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new XmlHelper();
 
-            StringBuilder sb = new StringBuilder();
-            StringWriter writer = new StringWriter(sb);
-            xmlSerializer.Serialize(writer, products, namespaces);
+            var data = context.Users
+                //.Include(u => u.ProductsSold)
+                .Where(u => u.ProductsSold.Count > 0)
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Take(5)
+                .ProjectTo<ExportSoldProductsByUserDto>(mapper.ConfigurationProvider)
+                .ToArray();
 
-            return sb.ToString().TrimEnd();
+            return xmlHelper.Serialize(data, "Users");
+        }
+
+        //07. Export Categories By Products Count
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            IMapper mapper = CreateMapper();
+            XmlHelper xmlHelper = new XmlHelper();
+
+            ExportCategoriesByProductDto[] categoriesDto = context.Categories
+                .ProjectTo<ExportCategoriesByProductDto>(mapper.ConfigurationProvider)
+                .ToArray()
+                .OrderByDescending(c => c.ProductsCount)
+                .ThenBy(c => c.TotalRevenue)
+                .ToArray();
+
+            return xmlHelper.Serialize(categoriesDto, "Categories");
         }
 
         private static IMapper CreateMapper()
