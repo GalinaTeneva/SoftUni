@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 using Trucks.Common;
 
 namespace Trucks.Data.Models
