@@ -4,6 +4,7 @@
     using Footballers.DataProcessor.ExportDto;
     using Microsoft.EntityFrameworkCore;
     using Newtonsoft.Json;
+    using System.Globalization;
     using System.Text;
     using System.Xml.Serialization;
 
@@ -48,27 +49,29 @@
         {
             ExportTeamFootballerDto[] teamDtos = context.Teams
                 .Include(t => t.TeamsFootballers)
-                .ThenInclude(tf => tf.Footballer)
                 .Where(t => t.TeamsFootballers.Any(f => f.Footballer.ContractStartDate >= date))
+                .ToArray()
                 .Select(t => new ExportTeamFootballerDto
                 {
-                    FootballerName = t.Name,
+                    Name = t.Name,
                     FootballerDtos = t.TeamsFootballers
-                        .Where(tf => tf.Footballer.ContractEndDate >= date)
+                        .Where(tf => tf.Footballer.ContractStartDate >= date)
+                        .ToArray()
                         .OrderByDescending(tf => tf.Footballer.ContractEndDate)
                         .ThenBy(tf => tf.Footballer.Name)
                         .Select(tf => new ExportFootballerDto
                         {
                             Name = tf.Footballer.Name,
-                            ContractStartDate = tf.Footballer.ContractStartDate.ToString(),
-                            ContractEndDate = tf.Footballer.ContractEndDate.ToString(),
+                            ContractStartDate = tf.Footballer.ContractStartDate.ToString("d", CultureInfo.InvariantCulture),
+                            ContractEndDate = tf.Footballer.ContractEndDate.ToString("d", CultureInfo.InvariantCulture),
                             BestSkillType = tf.Footballer.BestSkillType.ToString(),
                             PositionType = tf.Footballer.PositionType.ToString()
                         })
                         .ToArray()
                 })
-                .OrderByDescending(t => t.FootballerDtos.Count())
-                .ThenBy(t => t.FootballerName)
+                .OrderByDescending(t => t.FootballerDtos.Length)
+                .ThenBy(t => t.Name)
+                .Take(5)
                 .ToArray();
 
             return JsonConvert.SerializeObject(teamDtos, Formatting.Indented);

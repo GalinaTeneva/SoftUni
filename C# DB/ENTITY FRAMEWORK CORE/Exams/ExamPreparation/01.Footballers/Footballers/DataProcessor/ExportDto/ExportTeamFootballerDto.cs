@@ -4,7 +4,7 @@ namespace Footballers.DataProcessor.ExportDto
 {
     public class ExportTeamFootballerDto
     {
-        public string FootballerName { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
         [JsonProperty("Footballers")]
         public ExportFootballerDto[] FootballerDtos { get; set; }
