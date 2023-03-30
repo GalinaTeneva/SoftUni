@@ -26,59 +26,51 @@
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImportCoachDto[]), xmlRoot);
 
             using StringReader reader = new StringReader(xmlString);
-            var coachDtos = (ImportCoachDto[])xmlSerializer.Deserialize(reader);
+            ImportCoachDto[] coachDtos = (ImportCoachDto[])xmlSerializer.Deserialize(reader);
 
             StringBuilder sb = new StringBuilder();
 
             ICollection<Coach> validCoaches = new List<Coach>();
             foreach (ImportCoachDto coachDto in coachDtos)
             {
-                //if (string.IsNullOrEmpty(coachDto.Name) ||
-                //    string.IsNullOrEmpty(coachDto.Nationality))
-                //{
-                //    return ErrorMessage;
-                //}
-
-                Coach coach = new Coach();
-                coach.Name = coachDto.Name ?? "";
-                coach.Nationality = coachDto.Nationality ?? "";
-
-                if (!IsValid(coach))
+                if (!IsValid(coachDto))
                 {
                     sb.AppendLine(ErrorMessage);
                     continue;
                 }
 
-                validCoaches.Add(coach);
+                Coach coach = new Coach();
+                coach.Name = coachDto.Name;
+                coach.Nationality = coachDto.Nationality;
 
                 foreach (ImportFootballerDto footballerDto in coachDto.FootballerDtos)
                 {
-                    Footballer footballer = new Footballer();
-
-                    try
-                    {
-                        footballer.Name = footballerDto.Name ?? "";
-                        footballer.ContractStartDate = DateTime.ParseExact(footballerDto.ContractStartDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        footballer.ContractEndDate = DateTime.ParseExact(footballerDto.ContractEndDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        footballer.PositionType = (PositionType)footballerDto.PositionType;
-                        footballer.BestSkillType = (BestSkillType)footballerDto.BestSkillType;
-
-                        if (!IsValid(footballer) ||
-                            footballer.ContractEndDate < footballer.ContractStartDate)
-                        {
-                            sb.AppendLine(ErrorMessage);
-                            continue;
-                        }
-                    }
-                    catch (Exception)
+                    if (!IsValid(footballerDto))
                     {
                         sb.AppendLine(ErrorMessage);
                         continue;
                     }
+
+                    Footballer footballer = new Footballer();
+
+                    footballer.Name = footballerDto.Name;
+                    footballer.ContractStartDate = DateTime.ParseExact(footballerDto.ContractStartDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    footballer.ContractEndDate = DateTime.ParseExact(footballerDto.ContractEndDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    footballer.PositionType = (PositionType)footballerDto.PositionType;
+                    footballer.BestSkillType = (BestSkillType)footballerDto.BestSkillType;
+
+                    if (footballer.ContractEndDate < footballer.ContractStartDate)
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
                     coach.Footballers.Add(footballer);
                 }
 
-                sb.AppendLine(string.Format(SuccessfullyImportedTeam, coach.Name, coach.Footballers.Count));
+                validCoaches.Add(coach);
+
+                sb.AppendLine(string.Format(SuccessfullyImportedCoach, coach.Name, coach.Footballers.Count));
             }
 
             context.Coaches.AddRange(validCoaches);
@@ -93,46 +85,38 @@
 
             StringBuilder sb = new StringBuilder();
 
-            ICollection<Team> validTeams = new HashSet<Team>();
+            ICollection<Team> validTeams = new List<Team>();
             foreach (ImportTeamDto teamDto in teamDtos)
             {
+                if (!IsValid(teamDto) ||
+                    teamDto.Trophies <= 0)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
                 Team team = new Team();
-                team.Name = teamDto.Name ?? "";
-                team.Nationality = teamDto.Nationality ?? "";
+                team.Name = teamDto.Name;
+                team.Nationality = teamDto.Nationality;
+                team.Trophies = teamDto.Trophies;
 
-                if (!int.TryParse(teamDto.Trophies, out var trophiesCount) ||
-                    trophiesCount <= 0)
-                {
-                    sb.AppendLine(ErrorMessage);
-                    continue;
-                }
+                int[] existingFootballerIds = context.Footballers.Select(f => f.Id).ToArray();
 
-                team.Trophies = trophiesCount;
-
-                if (!IsValid(team))
-                {
-                    sb.AppendLine(ErrorMessage);
-                    continue;
-                }
-
-                //ICollection<Footballer> footballers = new HashSet<Footballer>();
                 foreach (int footballerId in teamDto.Footballers.Distinct())
                 {
-                    Footballer? footballer = context.Footballers.Find(footballerId);
-                    if (footballer == null)
+                    if (!existingFootballerIds.Contains(footballerId))
                     {
                         sb.AppendLine(ErrorMessage);
                         continue;
                     }
 
-                    //if (!team.TeamsFootballers.Any(f => f.FootballerId == footballerId))
-                    //{
-                    //    team.TeamsFootballers.Add(new TeamFootballer()
-                    //    {
-                    //        Footballer = footballer,
-                    //        FootballerId = footballerId
-                    //    });
-                    //}
+                    TeamFootballer teamFootballer = new TeamFootballer()
+                    {
+                        Team = team,
+                        FootballerId = footballerId,
+                    };
+
+                    team.TeamsFootballers.Add(teamFootballer);
                 }
 
                 validTeams.Add(team);
@@ -144,7 +128,6 @@
 
             return sb.ToString().TrimEnd();
         }
-
 
         private static bool IsValid(object dto)
         {

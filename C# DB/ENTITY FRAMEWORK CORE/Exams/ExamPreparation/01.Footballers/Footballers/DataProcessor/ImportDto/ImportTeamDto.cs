@@ -1,18 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Footballers.Common;
 using System.ComponentModel.DataAnnotations;
 
 namespace Footballers.DataProcessor.ImportDto
 {
     public class ImportTeamDto
     {
-        //[StringLength(40, MinimumLength = 3)]
-        //[Unicode]
-        public string? Name { get; set; }
+        [Required]
+        [StringLength(ValidationConstants.TeamNameMaxLength, MinimumLength = ValidationConstants.TeamNameMinLength)]
+        [RegularExpression(@"^[a-zA-z0-9\s\.\-]+$")]
+        public string Name { get; set; } = null!;
 
-        //[StringLength(40, MinimumLength = 2)]
-        public string? Nationality { get; set; }
+        [Required]
+        [StringLength(ValidationConstants.TeamNationalityMaxLength, MinimumLength = ValidationConstants.TeamNationalityMinLength)]
+        public string Nationality { get; set; } = null!;
 
-        public string? Trophies { get; set; }
+        [Required]
+        public int Trophies { get; set; }
 
         public int[]? Footballers { get; set; }
     }

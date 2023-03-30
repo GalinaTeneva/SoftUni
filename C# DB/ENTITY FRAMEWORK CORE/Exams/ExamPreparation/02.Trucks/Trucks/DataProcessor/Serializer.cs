@@ -24,7 +24,7 @@
                             RegistrationNumber = t.RegistrationNumber,
                             Make = t.MakeType.ToString()
                         })
-                        .OrderBy(t => t.RegistrationNumber)
+                        .OrderBy(t => t.RegistrationNumber) 
                         .ToArray()
                 })
                 .OrderByDescending(d => d.TrucksCount)

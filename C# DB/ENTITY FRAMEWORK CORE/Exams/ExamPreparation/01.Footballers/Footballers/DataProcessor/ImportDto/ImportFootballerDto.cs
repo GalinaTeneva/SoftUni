@@ -1,4 +1,4 @@
-﻿using Footballers.Data.Models.Enums;
+﻿using Footballers.Common;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
@@ -7,20 +7,20 @@ namespace Footballers.DataProcessor.ImportDto
     [XmlType("Footballer")]
     public class ImportFootballerDto
     {
-        //[XmlElement("")]
-        [StringLength(40, MinimumLength = 2)]
-        public string? Name { get; set; }
+        [Required]
+        [StringLength(ValidationConstants.FootballerNameMaxLength, MinimumLength = ValidationConstants.FootballerNameMinLength)]
+        public string Name { get; set; } = null!;
 
-        //[XmlElement("")]
-        public string? ContractStartDate { get; set; }
+        [Required]
+        public string ContractStartDate { get; set; } = null!;
 
-        //[XmlElement("")]
-        public string? ContractEndDate { get; set; }
+        [Required]
+        public string ContractEndDate { get; set; } = null!;
 
-        //[XmlElement("")]
+        [Required]
         public int BestSkillType { get; set; }
 
-        //[XmlElement("")]
+        [Required]
         public int PositionType { get; set; }
     }
 }

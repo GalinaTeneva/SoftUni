@@ -1,4 +1,5 @@
-﻿using Footballers.Data.Models.Enums;
+﻿using Footballers.Common;
+using Footballers.Data.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.Contracts;
@@ -15,7 +16,8 @@ namespace Footballers.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [StringLength(40, MinimumLength = 2)]
+        [Required]
+        [MaxLength(ValidationConstants.FootballerNameMaxLength)]
         public string Name { get; set; } = null!;
 
         public DateTime ContractStartDate { get; set; }

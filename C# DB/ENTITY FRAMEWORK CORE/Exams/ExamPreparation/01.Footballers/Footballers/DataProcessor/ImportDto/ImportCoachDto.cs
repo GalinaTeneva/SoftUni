@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Footballers.Common;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace Footballers.DataProcessor.ImportDto
@@ -6,13 +7,14 @@ namespace Footballers.DataProcessor.ImportDto
     [XmlType("Coach")]
     public class ImportCoachDto
     {
-        [StringLength(40, MinimumLength = 3)]
-        public string? Name { get; set; }
+        [Required]
+        [StringLength(ValidationConstants.CoachNameMaxLength, MinimumLength = ValidationConstants.CoachNameMinLength)]
+        public string Name { get; set; } = null!;
 
-        public string? Nationality { get; set; }
+        [Required]
+        public string Nationality { get; set; } = null!;
 
         [XmlArray("Footballers")]
-        [XmlArrayItem("Footballer")]
         public ImportFootballerDto[] FootballerDtos { get; set; }
     }
 }

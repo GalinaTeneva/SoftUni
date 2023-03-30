@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Footballers.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace Footballers.Data.Models
 {
@@ -12,10 +13,11 @@ namespace Footballers.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [StringLength(40, MinimumLength = 3)]
+        [Required]
+        [MaxLength(ValidationConstants.CoachNameMaxLength)]
         public string Name { get; set; } = null!;
 
-        [Required(AllowEmptyStrings = false)]
+        [Required]
         public string Nationality { get; set; } = null!;
 
         public ICollection<Footballer> Footballers { get; set; }
