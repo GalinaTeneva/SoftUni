@@ -27,7 +27,7 @@ namespace Footballers
 
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
-            //ExportEntities(context, projectDir + @"ExportResults/");
+            ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -56,10 +56,10 @@ namespace Footballers
             Console.WriteLine(exportCoachesWithTheirFootballers);
             File.WriteAllText(exportDir + "Actual Result - ExportCoachesWithTheirFootballers.xml", exportCoachesWithTheirFootballers);
 
-            DateTime dateTime = DateTime.ParseExact("31/03/2020", "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            var exportTeamsWithMostPlayers = DataProcessor.Serializer.ExportTeamsWithMostFootballers(context, dateTime);
-            Console.WriteLine(exportTeamsWithMostPlayers);
-            File.WriteAllText(exportDir + "Actual Result - ExportTeamsWithMostFootballers.json", exportTeamsWithMostPlayers);
+            //DateTime dateTime = DateTime.ParseExact("31/03/2020", "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            //var exportTeamsWithMostPlayers = DataProcessor.Serializer.ExportTeamsWithMostFootballers(context, dateTime);
+            //Console.WriteLine(exportTeamsWithMostPlayers);
+            //File.WriteAllText(exportDir + "Actual Result - ExportTeamsWithMostFootballers.json", exportTeamsWithMostPlayers);
         }
 
         private static void ResetDatabase(FootballersContext context, bool shouldDropDatabase = false)
