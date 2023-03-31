@@ -1,25 +1,19 @@
 ﻿using Artillery.Common;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 
-namespace Artillery.Data.Models
+namespace Artillery.DataProcessor.ImportDto
 {
-    public class Shell
+    [XmlType("Shell")]
+    public class ImportShellDto
     {
-        public Shell()
-        {
-            this.Guns = new HashSet<Gun>();
-        }
-
-        [Key]
-        public int Id { get; set; }
-
         [Required]
+        [Range(ValidationConstants.ShellWeightMinValue, ValidationConstants.ShellWeightMaxValue)]
         public double ShellWeight { get; set; }
 
         [Required]
+        [MinLength(ValidationConstants.ShellCalibberMinLength)]
         [MaxLength(ValidationConstants.ShellCalibberMaxLength)]
         public string Caliber { get; set; } = null!;
-
-        public ICollection<Gun> Guns { get; set; } = null!;
     }
 }

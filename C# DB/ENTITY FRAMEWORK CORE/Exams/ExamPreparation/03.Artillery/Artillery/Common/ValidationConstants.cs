@@ -20,8 +20,8 @@
         public const double ShellWeightMinValue = 2;
         public const double ShellWeightMaxValue = 1_680;
 
-        public const int ShellCalibberMinValue = 4;
-        public const int ShellCalibberMaxValue = 30;
+        public const int ShellCalibberMinLength = 4;
+        public const int ShellCalibberMaxLength = 30;
 
         //Gun
         public const int GunWeightMinValue = 100;

@@ -31,24 +31,23 @@
 
         private static void ImportEntities(ArtilleryContext context, string baseDir, string exportDir)
         {
-            //var importCountries =
-            //  DataProcessor.Deserializer.ImportCountries(context,
-            //      File.ReadAllText(baseDir + "countries.xml"));
-            //PrintAndExportEntityToFile(importCountries, exportDir + "Actual Result - ImportCountries.txt");
+            var importCountries =
+              DataProcessor.Deserializer.ImportCountries(context,
+                  File.ReadAllText(baseDir + "countries.xml"));
+            PrintAndExportEntityToFile(importCountries, exportDir + "Actual Result - ImportCountries.txt");
 
             var importManufacturers = DataProcessor.Deserializer.ImportManufacturers(context,
                File.ReadAllText(baseDir + "manufacturers.xml"));
             PrintAndExportEntityToFile(importManufacturers, exportDir + "Actual Result - ImportMnufacturers.txt");
 
-            //var importShells = DataProcessor.Deserializer.ImportShells(context,
-            //  File.ReadAllText(baseDir + "shells.xml"));
-            //PrintAndExportEntityToFile(importShells, exportDir + "Actual Result - ImportShells.txt");
+            var importShells = DataProcessor.Deserializer.ImportShells(context,
+              File.ReadAllText(baseDir + "shells.xml"));
+            PrintAndExportEntityToFile(importShells, exportDir + "Actual Result - ImportShells.txt");
 
-            //var importGuns =
-            //    DataProcessor.Deserializer.ImportGuns(context,
-            //        File.ReadAllText(baseDir + "guns.json"));
-            //PrintAndExportEntityToFile(importGuns, exportDir + "Actual Result - ImportGuns.txt");
-
+            var importGuns =
+                DataProcessor.Deserializer.ImportGuns(context,
+                    File.ReadAllText(baseDir + "guns.json"));
+            PrintAndExportEntityToFile(importGuns, exportDir + "Actual Result - ImportGuns.txt");
         }
 
         private static void ExportEntities(ArtilleryContext context, string exportDir)
