@@ -22,7 +22,7 @@ namespace Theatre
 
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
-            //ExportEntities(context, projectDir + @"ExportResults/");
+            ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -42,10 +42,10 @@ namespace Theatre
                File.ReadAllText(baseDir + "casts.xml"));
             PrintAndExportEntityToFile(casts, exportDir + "Actual Result - ImportCasts.txt");
 
-            //var plays =
-            //    DataProcessor.Deserializer.ImportTtheatersTickets(context,
-            //        File.ReadAllText(baseDir + "theatres-and-tickets.json"));
-            //PrintAndExportEntityToFile(plays, exportDir + "Actual Result - ImportTheatresTickets.txt");
+            var plays =
+                DataProcessor.Deserializer.ImportTtheatersTickets(context,
+                    File.ReadAllText(baseDir + "theatres-and-tickets.json"));
+            PrintAndExportEntityToFile(plays, exportDir + "Actual Result - ImportTheatresTickets.txt");
 
         }
 

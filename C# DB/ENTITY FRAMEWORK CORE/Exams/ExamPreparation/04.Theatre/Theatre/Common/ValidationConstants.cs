@@ -13,8 +13,8 @@
         public const int TheatreDirectorNameMaxLength = 30;
 
         //Tiket
-        public const double TiketPriceMinValue = 1.00;
-        public const double TiketPriceMaxValue = 100.00;
+        public const double TicketPriceMinValue = 1.00;
+        public const double TicketPriceMaxValue = 100.00;
 
         public const int TicketRowNumberMinValue = 1;
         public const int TicketRowNumberMaxValue = 10;

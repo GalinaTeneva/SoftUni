@@ -3,7 +3,7 @@ Successfully imported Candida with genre Romance and a rating of 6.5!
 Invalid data!
 Invalid data!
 Invalid data!
-Successfully imported Candida with genre Romance and a rating of 6.5!
+Invalid data!
 Invalid data!
 Successfully imported Playboy of the Western World with genre Comedy and a rating of 6.1!
 Successfully imported The Importance of Being with genre Musical and a rating of 1.3!

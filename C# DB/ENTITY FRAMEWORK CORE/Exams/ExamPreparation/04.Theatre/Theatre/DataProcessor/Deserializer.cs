@@ -1,5 +1,6 @@
 ﻿namespace Theatre.DataProcessor
 {
+    using Newtonsoft.Json;
     using System.ComponentModel.DataAnnotations;
     using System.Text;
     using System.Xml.Serialization;
@@ -52,14 +53,6 @@
                     continue;
                 }
 
-                //float rating = float.Parse(playDto.Rating);
-
-                //if (rating < ValidationConstants.PlayRatingMinValue || rating > ValidationConstants.PlayRatingMaxValue)
-                //{
-                //    sb.AppendLine(ErrorMessage);
-                //    continue;
-                //}
-
                 TimeSpan minDuration = new TimeSpan(1, 0, 0);
 
                 Play play = new Play();
@@ -69,6 +62,12 @@
                 play.Genre = (Genre)Enum.Parse(typeof(Genre), playDto.Genre);
                 play.Description = playDto.Description;
                 play.Screenwriter = playDto.Screenwriter;
+
+                if (play.Duration < minDuration)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
 
                 validPlays.Add(play);
                 sb.AppendLine(string.Format(SuccessfulImportPlay, playDto.Title, playDto.Genre, playDto.Rating));
@@ -123,7 +122,52 @@
 
         public static string ImportTtheatersTickets(TheatreContext context, string jsonString)
         {
-            throw new NotImplementedException();
+            ImportTheatreWithTicketsDto[] theatreDtos = JsonConvert.DeserializeObject<ImportTheatreWithTicketsDto[]>(jsonString);
+
+            StringBuilder sb = new StringBuilder();
+
+            ICollection<Theatre> validTheatres = new List<Theatre>();
+            foreach (ImportTheatreWithTicketsDto theatreDto in theatreDtos)
+            {
+                if (!IsValid(theatreDto))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Theatre theatre = new Theatre()
+                {
+                    Name = theatreDto.Name,
+                    NumberOfHalls = theatreDto.NumberOfHalls,
+                    Director = theatreDto.Director
+                };
+
+                foreach (ImportTheatreTicketDto ticketDto in theatreDto.TicketDtos)
+                {
+                    if (!IsValid(ticketDto))
+                    {
+                        sb.AppendLine(ErrorMessage);
+                        continue;
+                    }
+
+                    Ticket ticket = new Ticket()
+                    {
+                        Price = ticketDto.Price,
+                        RowNumber = ticketDto.RowNumber,
+                        PlayId = ticketDto.PlayId
+                    };
+
+                    theatre.Tickets.Add(ticket);
+                }
+
+                validTheatres.Add(theatre);
+                sb.AppendLine(string.Format(SuccessfulImportTheatre, theatre.Name, theatre.Tickets.Count));
+            }
+
+            context.Theatres.AddRange(validTheatres);
+            context.SaveChanges();
+
+            return sb.ToString().TrimEnd();
         }
 
 
