@@ -2,6 +2,8 @@
 {
     using Newtonsoft.Json;
     using System;
+    using System.Text;
+    using System.Xml.Serialization;
     using Theatre.Data;
     using Theatre.DataProcessor.ExportDto;
 
@@ -37,7 +39,40 @@
 
         public static string ExportPlays(TheatreContext context, double raiting)
         {
-            throw new NotImplementedException();
+            ExportPlayDto[] playDtos = context.Plays
+                .Where(p => p.Rating <= raiting)
+                .OrderBy(p => p.Title)
+                .ThenByDescending(p => p.Genre)
+                .Select(p => new ExportPlayDto()
+                {
+                    Title = p.Title,
+                    Duration = p.Duration.ToString(),
+                    Rating = p.Rating == 0 ? "Premier" : p.Rating.ToString(),
+                    Genre = p.Genre.ToString(),
+                    actorDtos = p.Casts
+                        .Where(a => a.IsMainCharacter == true)
+                        .Select(a => new ExportActorDto()
+                        {
+                            FullName = a.FullName,
+                            IsMainCharacter = $"Plays main character in '{p.Title}'."
+                        })
+                        .OrderByDescending(a => a.FullName)
+                        .ToArray()
+                })
+                .ToArray();
+
+            XmlRootAttribute xmlRoot = new XmlRootAttribute("Plays");
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ExportPlayDto[]), xmlRoot);
+
+            StringBuilder sb = new StringBuilder();
+            StringWriter writer = new StringWriter(sb);
+
+            XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+            namespaces.Add(string.Empty, string.Empty);
+
+            xmlSerializer.Serialize(writer, playDtos, namespaces);
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
