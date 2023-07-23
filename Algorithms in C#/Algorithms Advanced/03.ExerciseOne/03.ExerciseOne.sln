@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.MostReliablePath", "01.MostReliablePath\01.MostReliablePath.csproj", "{6230D28D-A4C6-4FE7-B2BA-0998C19DBAC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CheapTownTour", "02.CheapTownTour\02.CheapTownTour.csproj", "{CAE32B51-E5EB-42CC-BAE9-FB9C364423B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Undefined", "03.Undefined\03.Undefined.csproj", "{33AEA60B-1524-4218-895C-23F7B80150CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.BigTrip", "04.BigTrip\04.BigTrip.csproj", "{AA066F5F-B1CC-49FE-8BE2-5792C1714D97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.CableNetwork", "05.CableNetwork\05.CableNetwork.csproj", "{6A257649-19A0-42B2-9D8E-1C18F6114C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.CableNetworkKruskalsAlgorithm", "05.CableNetworkKruskalsAlgorithm\05.CableNetworkKruskalsAlgorithm.csproj", "{4FAB8157-F37A-47EA-B58F-F65A23004F2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6230D28D-A4C6-4FE7-B2BA-0998C19DBAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6230D28D-A4C6-4FE7-B2BA-0998C19DBAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6230D28D-A4C6-4FE7-B2BA-0998C19DBAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6230D28D-A4C6-4FE7-B2BA-0998C19DBAC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAE32B51-E5EB-42CC-BAE9-FB9C364423B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE32B51-E5EB-42CC-BAE9-FB9C364423B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE32B51-E5EB-42CC-BAE9-FB9C364423B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE32B51-E5EB-42CC-BAE9-FB9C364423B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AEA60B-1524-4218-895C-23F7B80150CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AEA60B-1524-4218-895C-23F7B80150CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AEA60B-1524-4218-895C-23F7B80150CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AEA60B-1524-4218-895C-23F7B80150CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA066F5F-B1CC-49FE-8BE2-5792C1714D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA066F5F-B1CC-49FE-8BE2-5792C1714D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA066F5F-B1CC-49FE-8BE2-5792C1714D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA066F5F-B1CC-49FE-8BE2-5792C1714D97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A257649-19A0-42B2-9D8E-1C18F6114C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A257649-19A0-42B2-9D8E-1C18F6114C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A257649-19A0-42B2-9D8E-1C18F6114C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A257649-19A0-42B2-9D8E-1C18F6114C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAB8157-F37A-47EA-B58F-F65A23004F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAB8157-F37A-47EA-B58F-F65A23004F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAB8157-F37A-47EA-B58F-F65A23004F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAB8157-F37A-47EA-B58F-F65A23004F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28FFD684-7591-426A-BCED-98A62F146CCC}
+	EndGlobalSection
+EndGlobal

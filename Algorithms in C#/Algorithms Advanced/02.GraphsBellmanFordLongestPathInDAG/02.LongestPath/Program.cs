@@ -55,11 +55,11 @@ namespace _02.LongestPath
             int start = int.Parse(Console.ReadLine());
             int end = int.Parse(Console.ReadLine());
 
-            var distances = new double[nodes + 1];
+            var distances = new double[nodes];
             Array.Fill(distances, double.NegativeInfinity);
             distances[start] = 0;
 
-            var prev = new int[nodes + 1];
+            var prev = new int[nodes];
             Array.Fill(prev, -1);
 
             var sortedNodes = TopologicalSorting();
