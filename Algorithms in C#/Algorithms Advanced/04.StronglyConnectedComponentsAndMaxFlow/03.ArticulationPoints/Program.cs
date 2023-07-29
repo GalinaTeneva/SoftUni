@@ -1,4 +1,8 @@
-﻿namespace _03.ArticulationPoints
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace _03.ArticulationPoints
 {
     internal class Program
     {
