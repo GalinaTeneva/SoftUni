@@ -8,6 +8,7 @@ namespace _02.ChainLightning
     public class Road
     {
         public int FirstNeighborhood { get; set; }
+
         public int SecondNeighborhood { get; set; }
 
         public int Distance { get; set; }
