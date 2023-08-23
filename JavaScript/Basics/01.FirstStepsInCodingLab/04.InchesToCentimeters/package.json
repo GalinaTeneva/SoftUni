@@ -1,0 +1,14 @@
+{
+  "name": "04.inches-to-centimeters",
+  "version": "0.0.0",
+  "description": "04.InchesToCentimeters",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

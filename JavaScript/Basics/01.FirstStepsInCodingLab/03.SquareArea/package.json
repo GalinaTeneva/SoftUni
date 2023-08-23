@@ -1,0 +1,14 @@
+{
+  "name": "03.square-area",
+  "version": "0.0.0",
+  "description": "03.SquareArea",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
