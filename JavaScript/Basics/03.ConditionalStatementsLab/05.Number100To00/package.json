@@ -1,0 +1,14 @@
+{
+  "name": "05.number100-to00",
+  "version": "0.0.0",
+  "description": "05.Number100To00",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
