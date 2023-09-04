@@ -1,0 +1,14 @@
+{
+  "name": "12.trade-commissions",
+  "version": "0.0.0",
+  "description": "12.TradeCommissions",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "10.invalid-number",
+  "version": "0.0.0",
+  "description": "10.InvalidNumber",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

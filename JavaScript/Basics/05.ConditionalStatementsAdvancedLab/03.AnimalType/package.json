@@ -1,0 +1,14 @@
+{
+  "name": "03.animal-type",
+  "version": "0.0.0",
+  "description": "03.AnimalType",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
