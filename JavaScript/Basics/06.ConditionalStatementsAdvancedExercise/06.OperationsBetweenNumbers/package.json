@@ -1,0 +1,14 @@
+{
+  "name": "06.operations-between-numbers",
+  "version": "0.0.0",
+  "description": "06.OperationsBetweenNumbers",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

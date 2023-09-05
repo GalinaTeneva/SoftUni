@@ -1,0 +1,14 @@
+{
+  "name": "04.fishing-boat",
+  "version": "0.0.0",
+  "description": "04.FishingBoat",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

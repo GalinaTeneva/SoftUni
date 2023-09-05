@@ -1,0 +1,14 @@
+{
+  "name": "08.on-time-for-the-exam",
+  "version": "0.0.0",
+  "description": "08.OnTimeForTheExam",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
