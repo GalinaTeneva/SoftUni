@@ -1,0 +1,14 @@
+{
+  "name": "04.even-powers-of2",
+  "version": "0.0.0",
+  "description": "04.EvenPowersOf2",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

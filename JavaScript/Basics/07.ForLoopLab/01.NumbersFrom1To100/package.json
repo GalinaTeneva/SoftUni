@@ -1,0 +1,14 @@
+{
+  "name": "01.numbers-from1-to100",
+  "version": "0.0.0",
+  "description": "01.NumbersFrom1To100",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "03.numbers1-to-nwith-step",
+  "version": "0.0.0",
+  "description": "03.Numbers1ToNWithStep",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

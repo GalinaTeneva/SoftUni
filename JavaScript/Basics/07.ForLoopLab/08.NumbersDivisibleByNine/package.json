@@ -1,0 +1,14 @@
+{
+  "name": "08.numbers-divisible-by-nine",
+  "version": "0.0.0",
+  "description": "08.NumbersDivisibleByNine",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "02.numbers-nto1",
+  "version": "0.0.0",
+  "description": "02.NumbersNTo1",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

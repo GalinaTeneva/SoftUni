@@ -1,0 +1,14 @@
+{
+  "name": "06.vowels-sum",
+  "version": "0.0.0",
+  "description": "06.VowelsSum",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
