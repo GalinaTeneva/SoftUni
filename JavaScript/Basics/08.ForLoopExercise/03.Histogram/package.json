@@ -1,0 +1,14 @@
+{
+  "name": "03.histogram",
+  "version": "0.0.0",
+  "description": "03.Histogram",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

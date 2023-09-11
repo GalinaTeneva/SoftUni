@@ -1,0 +1,14 @@
+{
+  "name": "04.clever-lily",
+  "version": "0.0.0",
+  "description": "04.CleverLily",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
