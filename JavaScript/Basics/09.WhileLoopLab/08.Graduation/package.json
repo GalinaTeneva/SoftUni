@@ -1,0 +1,14 @@
+{
+  "name": "08.graduation",
+  "version": "0.0.0",
+  "description": "08.Graduation",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "06.max-number",
+  "version": "0.0.0",
+  "description": "06.MaxNumber",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

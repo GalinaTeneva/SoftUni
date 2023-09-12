@@ -1,0 +1,14 @@
+{
+  "name": "02.password",
+  "version": "0.0.0",
+  "description": "02.Password",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
