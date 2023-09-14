@@ -1,0 +1,14 @@
+{
+  "name": "01.old-books",
+  "version": "0.0.0",
+  "description": "01.OldBooks",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
