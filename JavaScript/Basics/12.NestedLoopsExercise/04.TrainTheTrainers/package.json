@@ -1,0 +1,14 @@
+{
+  "name": "04.train-the-trainers",
+  "version": "0.0.0",
+  "description": "04.TrainTheTrainers",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

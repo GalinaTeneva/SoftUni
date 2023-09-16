@@ -1,0 +1,14 @@
+{
+  "name": "01.number-pyramid",
+  "version": "0.0.0",
+  "description": "01.NumberPyramid",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
