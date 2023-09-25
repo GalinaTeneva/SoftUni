@@ -1,0 +1,22 @@
+body{
+    background-color: #e4e978;
+    padding: 5px;
+    margin: 15px;
+    width: 700px;
+}
+
+.formatted, div{
+    padding: 15px;
+    border: 1px solid #b2ad7d;
+    margin: 10px;
+    background-color: #f2f4c0;
+}
+
+.formatted-comments{
+    font-style: italic;
+    color: #4c7658;
+    padding: 15px;
+    border: 1px solid #b2ad7d;
+    margin: 10px;
+    background-color: #f2f4c0;
+}
