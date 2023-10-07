@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 70px;
+    background-color: rgb(238, 238, 238) ;
+}
+
+main {
+    margin: 25px 0 25px 0;
+    padding-right: 3em;
+    width: 77%;
+}
+
+aside {
+    position: absolute;
+    top: 20%;
+    right: 13%;
+}
+
+p {
+    margin: 1em 0 1em 0;
+}
+
+blockquote {
+    font-family: Georgia, serif ;
+    font-style: italic;
+    border-left: 3px solid lightgray;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    color: grey;
+    width: 50%;
+}
+
+blockquote > p:last-child {
+    text-align: right;
+}
+
+aside a {
+    text-decoration: none;
+    color: rgb(0, 102, 0) ;
+}
+
+aside nav {
+    padding-left: 2em;
+}
+
+aside h3 {
+    font-family: Georgia, serif ;
+    font-size: 1em/1.2 ;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+img {
+    padding: 5px;
+    border: 3px solid black;
+    background-color: rgb(255, 255, 255) ;
+    box-shadow: 4px 4px 20px 2px rgba(0, 0, 0, 0.25) ;
+}
+
+
+.quote-layout {
+    display: table-cell;
+}
+
+.first-image {
+    width: 200px;
+    float: right;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.second-image {
+    float: left;
+    padding: 0.5em 1em 0.5em 0;
+}
+
+.navigation {
+    border-bottom: 3px solid black;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+
+.navigation p {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.navigation nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.navigation li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.5em;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: rgb(0, 102, 0) ;
+}
+
+.quote-layout.paragraph {
+    padding-right: 1em;
+}

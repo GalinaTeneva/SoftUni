@@ -1,0 +1,52 @@
+body {
+    background: rgb(238, 238, 238);
+    font-family: Georgia, serif;
+    height: 100vh;
+    position: relative;
+}
+
+h3 {
+    size: 1em/1.2 ;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+a {
+    background: rgb(0, 153, 0);
+    padding: 8px 15px;
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.card {
+    background: rgb(255, 255, 255);
+    display: block;
+    width: 45%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image {
+    height: 265px;
+    overflow: hidden;
+}
+
+.text {
+    padding: 30px;
+}
+
+.text p:last-of-type {
+    text-align: right;
+    margin: 10px 0;
+}
