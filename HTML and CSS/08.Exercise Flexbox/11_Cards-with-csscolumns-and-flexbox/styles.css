@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+.cards-layout {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em auto;
+    max-width: 50em;
+    gap: 1em;
+}
+
+.cards-layout h2 {
+    flex-basis: 100%;
+}
+
+.card {
+    background-color: white;
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+    overflow: hidden;
+    box-shadow: 0 0 1em 0.2em rgb(0, 0, 0, 0.2);
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card section,
+.card footer {
+    padding: 1em 1.2em;
+}
+
+.card section {
+    flex: 1 0 auto;
+}
+
+.card footer {
+    border-top: 1px solid #CCC;
+}

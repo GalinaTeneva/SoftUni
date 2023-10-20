@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(238, 238, 238);
+    font-family: Helvetica, sans-serif ;
+}
+
+main {
+    flex: 1 1 auto;
+    padding-left: 1.5em;
+    padding-top: 2em;
+}
+
+footer {
+    color: rgb(255, 255, 255);
+    background-color: rgb(102, 102, 102);
+}
+
+header {
+    border-bottom: 2px solid black;
+    text-transform: uppercase;
+    padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-bottom: 1.7em;
+}
+
+p {
+    margin-top: 1.3em;
+}
+
+h2 {
+    font-family: serif;
+    font-weight: normal;
+}

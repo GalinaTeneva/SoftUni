@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+blockquote {
+    font-family: Georgia, serif;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+header {
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    flex: 1 1 100%;
+}
+
+main {
+    flex: 1 1 65%;
+}
+
+aside {
+    flex: 1 1 25%;
+    padding-left: 3em;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1.5em;
+}
+
+aside a {
+    color: rgb(0, 153, 0);
+}
+
+aside h6 {
+    font-size: 1.3em;
+}
+
+aside ul {
+    padding-left: 2.5em;
+}
+
+aside h6:last-of-type{
+    margin-top: 1em;
+}
+
+.page {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3em 5em;
+    max-width: 45em;
+    gap: 1em;
+}
+
+img[class*="align"] {
+    border: 5px solid black;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 1em 0.2em rgb(0, 0, 0, 0.2);
+    padding: 0.5em;
+    display: block;
+}
+
+.align-right {
+    display: block;
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+.align-left {
+    float: left;
+    margin: 0 1em 1em 0;
+}

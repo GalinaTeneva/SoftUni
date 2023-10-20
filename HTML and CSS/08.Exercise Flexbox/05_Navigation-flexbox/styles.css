@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 Verdana, sans-serif;
+}
+
+body {
+    padding: 4em;
+}
+
+header {
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding-bottom: 1em;
+    display: flex;
+}
+
+nav {
+    margin-left: auto;
+}
+
+ul {
+    display: flex;
+    gap: 1em;
+}
+
+li {
+    display: block;
+    list-style: none;
+}
+
+a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}
+
+p {
+    margin-top: 1em;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    margin-top: 1em;
+    font-weight: normal;
+}
+
+header p {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}

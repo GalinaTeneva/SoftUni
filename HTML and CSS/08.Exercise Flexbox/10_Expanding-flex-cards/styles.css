@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container ul {
+    display: flex;
+    gap: 1em;
+}
+
+.container li {
+    display: block;
+    list-style: none;
+    border-radius: 0.5em;
+    width: 10em;
+    height: 25em;
+    overflow: hidden;
+    box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.2);
+    background-color: black;
+}
+
+.container img {
+    display: block;
+    width: auto;
+    height: 100%;
+    transform: translate(-35%);
+}
+
+.container li.open {
+    width: 40em;
+    display: flex;
+    justify-content: center;
+}
+
+.container li.open img {
+    transform: translate(0);
+}
