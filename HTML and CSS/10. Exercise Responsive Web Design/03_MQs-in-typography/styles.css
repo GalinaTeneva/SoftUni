@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 12px/1.5 Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+blockquote {
+    font-family: Georgia, serif;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+header {
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    flex: 1 1 100%;
+}
+
+main {
+    flex: 1 1 100%;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1.5em;
+}
+
+.page {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3em 5em;
+    max-width: 100vw;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+img[class*="align"] {
+    border: 5px solid black;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 1em 0.2em rgb(0, 0, 0, 0.2);
+    padding: 0.5em;
+    display: block;
+}
+
+.align-right {
+    display: block;
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+.align-left {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+@media (max-width: 370px)
+{
+    .align-right{
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+}
+@media (min-width: 500px) {
+    html {
+        font-size: 14px;
+    }
+}
+@media (min-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+}
+@media (min-width: 800px) {
+    html {
+        font-size: 18px;
+    }
+}
+@media (min-width: 1300px) {
+    html {
+        font-size: 21px;
+    }
+}
+@media (min-width: 1800px) {
+    html {
+        font-size: 23px;
+    }
+}

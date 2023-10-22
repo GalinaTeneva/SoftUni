@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    margin: 2em;
+    padding: 2.5em;
+}
+
+h3 {
+    font: 1em/1.2 Georgia, serif;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    max-width: 490px;
+    max-height: 450px;
+    border-radius: 0.4em;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 1.5em 0.2em rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.button a {
+    background-color: rgb(0, 153, 0);
+    padding: 0.5em 1em 0.5em 1em;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.3em;
+}
+
+.button {
+    text-align: end;
+}
+
+.image-container {
+    height: 65%;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container::before,
+.image-container::after {
+    display: block;
+    content: "";
+}
+
+.image-container::before {
+    padding-top: 63%;
+}
+
+.image-container::after{
+    position: absolute;
+    inset: 0;
+    background: rgba(58, 137, 233, 0.3);
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.text-container {
+    padding: 2em;
+}
+
+.text-container p {
+    margin-bottom: 1em;
+}
