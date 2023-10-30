@@ -1,8 +1,10 @@
 function findAndReplace(text, word) {
     let replaceString = "*".repeat(word.length);
-    let editedText = text.replaceAll(word, replaceString);
+    while (text.includes(word)) {
+        text = text.replace(word, replaceString);
+    }
 
-    console.log(editedText);
+    console.log(text);
 }
 
 findAndReplace('A small sentence with some words', 'small')

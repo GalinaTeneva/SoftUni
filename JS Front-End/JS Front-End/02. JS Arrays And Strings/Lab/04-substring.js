@@ -1,9 +1,5 @@
 function makeSubstring (string, startIdx, count) {
-    let result = "";
-
-    for (let index = startIdx; index <= count; index++) {
-        result += string[index];
-    }
+    let result = string.substring(startIdx, startIdx + count);
 
     console.log(result);
 }
