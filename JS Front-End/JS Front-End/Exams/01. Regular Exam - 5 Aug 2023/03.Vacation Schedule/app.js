@@ -19,8 +19,6 @@ function solve() {
     editBtn.addEventListener("click", editVacation);
 
     async function getAllCourses() {
-        //let testContainer = allCourcesListDiv.querySelector(".container");
-        //allCourcesListDiv.removeChild(testContainer);
         allCourcesListDiv.innerHTML = "";
 
         let response = await fetch(baseURL);
@@ -63,7 +61,6 @@ function solve() {
                 fetch(`${baseURL}${id}`, {
                     method: "DELETE"
                 })
-
                 .then(getAllCourses());
             })
         })
